@@ -465,11 +465,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/hanzo/dotnet/api/api.csproj",
+      "projectUniqueName": "/home/hanzo/dotnet/BasketballApp/api/api.csproj",
       "projectName": "api",
-      "projectPath": "/home/hanzo/dotnet/api/api.csproj",
+      "projectPath": "/home/hanzo/dotnet/BasketballApp/api/api.csproj",
       "packagesPath": "/home/hanzo/.nuget/packages/",
-      "outputPath": "/home/hanzo/dotnet/api/obj/",
+      "outputPath": "/home/hanzo/dotnet/BasketballApp/api/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/hanzo/.nuget/NuGet/NuGet.Config"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MtxAD/FPEDyHFcT7QHk2gyrg7unsRwCGtqNN8g+37TtnAXGIgq6+so0tG8UXhB2/6upgDdH70diqDIxh9oWlqQ==",
+  "dgSpecHash": "TJTvqhcpFamveTK9K0tRrBa3p54GUuO5AcPquHp6y1zWnlodJyvM7m3dk2muGMu4LqYY9UluhVYv68xMx2dLtg==",
   "success": true,
-  "projectFilePath": "/home/hanzo/dotnet/api/api.csproj",
+  "projectFilePath": "/home/hanzo/dotnet/BasketballApp/api/api.csproj",
   "expectedPackageFiles": [
     "/home/hanzo/.nuget/packages/microsoft.aspnetcore.openapi/8.0.5/microsoft.aspnetcore.openapi.8.0.5.nupkg.sha512",
     "/home/hanzo/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
