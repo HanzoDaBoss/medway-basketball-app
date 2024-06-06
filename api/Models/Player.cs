@@ -20,7 +20,7 @@ namespace api.Models
         public int Playmaking { get; set; }
         public int Rebound { get; set; }
         public int BallHandling { get; set; }
-        [Column(TypeName = "decimal(1,2)")]
+        [Column(TypeName = "decimal(18,2)")]
         public decimal Multiplier { get; set; }
         public decimal OverallRating
         {
