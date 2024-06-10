@@ -27,5 +27,22 @@ namespace api.Mappers
                 OverallRating = playerModel.OverallRating
             };
         }
+
+        public static Player ToPlayerFromCreateDto(this CreatePlayerRequestDto playerDto)
+        {
+            return new Player
+            {
+                PlayerName = playerDto.PlayerName,
+                InsideScoring = playerDto.InsideScoring,
+                MidRangeShooting = playerDto.MidRangeShooting,
+                LongRangeShooting = playerDto.LongRangeShooting,
+                PerimeterDefense = playerDto.PerimeterDefense,
+                InsideDefense = playerDto.InsideDefense,
+                Playmaking = playerDto.Playmaking,
+                Rebound = playerDto.Rebound,
+                BallHandling = playerDto.BallHandling,
+                Multiplier = playerDto.Multiplier,
+            };
+        }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using api.Data;
+using api.Dtos.Player;
 using api.Mappers;
 using Microsoft.AspNetCore.Mvc;
 
@@ -38,6 +39,15 @@ namespace api.Controllers
             }
 
             return Ok(player.ToPlayerDto());
+        }
+
+        [HttpPost]
+        public IActionResult Create([FromBody] CreatePlayerRequestDto playerDto)
+        {
+            var playerModel = playerDto.ToPlayerFromCreateDto();
+            _context.Players.Add(playerModel);
+            _context.SaveChanges();
+            return CreatedAtAction(nameof(GetById), new { id = playerModel.Id }, playerModel.ToPlayerDto());
         }
     }
 }
