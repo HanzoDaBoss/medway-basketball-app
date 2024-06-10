@@ -24,6 +24,7 @@ namespace api.Dtos.Player
             {
                 return (InsideScoring + MidRangeShooting + LongRangeShooting + PerimeterDefense + InsideDefense + Playmaking + Rebound + BallHandling) / 8m * Multiplier;
             }
+            set { }
         }
     }
 }
