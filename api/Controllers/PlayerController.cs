@@ -49,5 +49,24 @@ namespace api.Controllers
             _context.SaveChanges();
             return CreatedAtAction(nameof(GetById), new { id = playerModel.Id }, playerModel.ToPlayerDto());
         }
+
+        [HttpPut]
+        [Route("{id}")]
+        public IActionResult Update([FromRoute] int id, [FromBody] UpdatePlayerRequestDto updateDto)
+        {
+            var playerModel = _context.Players.FirstOrDefault(x => x.Id == id);
+
+            if (playerModel == null)
+            {
+                return NotFound();
+            }
+
+            playerModel.PlayerName = updateDto.PlayerName;
+            playerModel.InsideScoring = updateDto.InsideScoring;
+            playerModel.MidRangeShooting = updateDto.MidRangeShooting;
+            playerModel.LongRangeShooting = updateDto.LongRangeShooting;
+            playerModel.PerimeterDefense = updateDto.PerimeterDefense;
+            playerModel.InsideDefense = p
+        }
     }
 }
