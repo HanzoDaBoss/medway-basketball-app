@@ -71,6 +71,10 @@ namespace api.Controllers
             playerModel.Rebound = updateDto.Rebound;
             playerModel.BallHandling = updateDto.BallHandling;
             playerModel.Multiplier = updateDto.Multiplier;
+
+            _context.SaveChanges();
+
+            return Ok(playerModel.ToPlayerDto());
         }
     }
 }
