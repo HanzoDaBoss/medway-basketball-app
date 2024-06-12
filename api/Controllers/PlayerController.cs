@@ -66,7 +66,11 @@ namespace api.Controllers
             playerModel.MidRangeShooting = updateDto.MidRangeShooting;
             playerModel.LongRangeShooting = updateDto.LongRangeShooting;
             playerModel.PerimeterDefense = updateDto.PerimeterDefense;
-            playerModel.InsideDefense = p
+            playerModel.InsideDefense = updateDto.InsideDefense;
+            playerModel.Playmaking = updateDto.Playmaking;
+            playerModel.Rebound = updateDto.Rebound;
+            playerModel.BallHandling = updateDto.BallHandling;
+            playerModel.Multiplier = updateDto.Multiplier;
         }
     }
 }
