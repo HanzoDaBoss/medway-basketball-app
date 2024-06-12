@@ -76,5 +76,23 @@ namespace api.Controllers
 
             return Ok(playerModel.ToPlayerDto());
         }
+
+        [HttpDelete]
+        [Route("{id}")]
+        public IActionResult Delete([FromRoute] int id)
+        {
+            var playerModel = _context.Players.FirstOrDefault(x => x.Id == id);
+
+            if (playerModel == null)
+            {
+                return NotFound();
+            }
+
+            _context.Players.Remove(playerModel);
+
+            _context.SaveChanges();
+
+            return NoContent();
+        }
     }
 }
