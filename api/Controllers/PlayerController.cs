@@ -31,9 +31,9 @@ namespace api.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetById([FromRoute] int id)
+        public async Task<IActionResult> GetById([FromRoute] int id)
         {
-            var player = _context.Players.Find(id);
+            var player = await _context.Players.FindAsync(id);
 
             if (player == null)
             {
