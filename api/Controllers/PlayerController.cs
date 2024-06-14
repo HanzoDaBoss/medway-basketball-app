@@ -6,6 +6,7 @@ using api.Data;
 using api.Dtos.Player;
 using api.Mappers;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace api.Controllers
 {
@@ -20,12 +21,13 @@ namespace api.Controllers
         }
 
         [HttpGet]
-        public IActionResult GetAll()
+        public async Task<IActionResult> GetAll()
         {
-            var players = _context.Players.ToList()
-            .Select(p => p.ToPlayerDto());
+            var players = await _context.Players.ToListAsync();
 
-            return Ok(players);
+            var playerDto = players.Select(p => p.ToPlayerDto());
+
+            return Ok(playerDto);
         }
 
         [HttpGet("{id}")]
