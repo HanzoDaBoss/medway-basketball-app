@@ -44,11 +44,11 @@ namespace api.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody] CreatePlayerRequestDto playerDto)
+        public async Task<IActionResult> Create([FromBody] CreatePlayerRequestDto playerDto)
         {
             var playerModel = playerDto.ToPlayerFromCreateDto();
-            _context.Players.Add(playerModel);
-            _context.SaveChanges();
+            await _context.Players.AddAsync(playerModel);
+            await _context.SaveChangesAsync();
             return CreatedAtAction(nameof(GetById), new { id = playerModel.Id }, playerModel.ToPlayerDto());
         }
 
