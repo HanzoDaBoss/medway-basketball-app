@@ -54,9 +54,9 @@ namespace api.Controllers
 
         [HttpPut]
         [Route("{id}")]
-        public IActionResult Update([FromRoute] int id, [FromBody] UpdatePlayerRequestDto updateDto)
+        public async Task<IActionResult> Update([FromRoute] int id, [FromBody] UpdatePlayerRequestDto updateDto)
         {
-            var playerModel = _context.Players.FirstOrDefault(x => x.Id == id);
+            var playerModel = await _context.Players.FirstOrDefaultAsync(x => x.Id == id);
 
             if (playerModel == null)
             {
@@ -74,7 +74,7 @@ namespace api.Controllers
             playerModel.BallHandling = updateDto.BallHandling;
             playerModel.Multiplier = updateDto.Multiplier;
 
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
 
             return Ok(playerModel.ToPlayerDto());
         }
