@@ -81,9 +81,9 @@ namespace api.Controllers
 
         [HttpDelete]
         [Route("{id}")]
-        public IActionResult Delete([FromRoute] int id)
+        public async Task<IActionResult> Delete([FromRoute] int id)
         {
-            var playerModel = _context.Players.FirstOrDefault(x => x.Id == id);
+            var playerModel = await _context.Players.FirstOrDefaultAsync(x => x.Id == id);
 
             if (playerModel == null)
             {
@@ -92,7 +92,7 @@ namespace api.Controllers
 
             _context.Players.Remove(playerModel);
 
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
 
             return NoContent();
         }
