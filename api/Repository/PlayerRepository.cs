@@ -44,9 +44,9 @@ namespace api.Repository
             return await _context.Players.ToListAsync();
         }
 
-        public Task<Player?> GetByIdAsync(int id)
+        public async Task<Player?> GetByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Players.FindAsync(id);
         }
 
         public Task<Player?> UpdateAsync(int id, UpdatePlayerRequestDto playerDto)
