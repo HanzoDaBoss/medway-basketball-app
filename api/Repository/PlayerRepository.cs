@@ -46,13 +46,42 @@ namespace api.Repository
 
             if (!string.IsNullOrWhiteSpace(query.SortBy))
             {
-                string[] playerProperties = ["InsideScoring", "MidRangeShooting", "LongRangeShooting", "PerimeterDefense", "InsideDefense", "Playmaking", "Rebound", "BallHandling"];
-
                 if (query.SortBy.Equals("InsideScoring", StringComparison.OrdinalIgnoreCase))
                 {
                     players = query.IsDescending ? players.OrderByDescending(p => p.InsideScoring) : players.OrderBy(p => p.InsideScoring);
                 }
-
+                if (query.SortBy.Equals("MidRangeShooting", StringComparison.OrdinalIgnoreCase))
+                {
+                    players = query.IsDescending ? players.OrderByDescending(p => p.MidRangeShooting) : players.OrderBy(p => p.MidRangeShooting);
+                }
+                if (query.SortBy.Equals("LongRangeShooting", StringComparison.OrdinalIgnoreCase))
+                {
+                    players = query.IsDescending ? players.OrderByDescending(p => p.LongRangeShooting) : players.OrderBy(p => p.LongRangeShooting);
+                }
+                if (query.SortBy.Equals("PerimeterDefense", StringComparison.OrdinalIgnoreCase))
+                {
+                    players = query.IsDescending ? players.OrderByDescending(p => p.PerimeterDefense) : players.OrderBy(p => p.PerimeterDefense);
+                }
+                if (query.SortBy.Equals("InsideDefense", StringComparison.OrdinalIgnoreCase))
+                {
+                    players = query.IsDescending ? players.OrderByDescending(p => p.InsideDefense) : players.OrderBy(p => p.InsideDefense);
+                }
+                if (query.SortBy.Equals("Playmaking", StringComparison.OrdinalIgnoreCase))
+                {
+                    players = query.IsDescending ? players.OrderByDescending(p => p.Playmaking) : players.OrderBy(p => p.Playmaking);
+                }
+                if (query.SortBy.Equals("Rebound", StringComparison.OrdinalIgnoreCase))
+                {
+                    players = query.IsDescending ? players.OrderByDescending(p => p.Rebound) : players.OrderBy(p => p.Rebound);
+                }
+                if (query.SortBy.Equals("BallHandling", StringComparison.OrdinalIgnoreCase))
+                {
+                    players = query.IsDescending ? players.OrderByDescending(p => p.BallHandling) : players.OrderBy(p => p.BallHandling);
+                }
+                if (query.SortBy.Equals("OverallRating", StringComparison.OrdinalIgnoreCase))
+                {
+                    players = query.IsDescending ? players.OrderByDescending(p => p.OverallRating) : players.OrderBy(p => p.OverallRating);
+                }
             }
 
             return await players.ToListAsync();
