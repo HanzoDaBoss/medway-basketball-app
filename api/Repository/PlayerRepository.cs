@@ -39,9 +39,9 @@ namespace api.Repository
             return playerModel;
         }
 
-        public Task<List<Player>> GetAllAsync()
+        public async Task<List<Player>> GetAllAsync()
         {
-            return _context.Players.ToListAsync();
+            return await _context.Players.ToListAsync();
         }
 
         public Task<Player?> GetByIdAsync(int id)
