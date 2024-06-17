@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using api.Data;
 using api.Dtos.Player;
+using api.Helpers;
 using api.Interfaces;
 using api.Models;
 using Microsoft.EntityFrameworkCore;
@@ -39,9 +40,11 @@ namespace api.Repository
             return playerModel;
         }
 
-        public async Task<List<Player>> GetAllAsync()
+        public async Task<List<Player>> GetAllAsync(QueryObject query)
         {
-            return await _context.Players.ToListAsync();
+            var players = _context.Players.AsQueryable();
+
+            return await players.ToListAsync();
         }
 
         public async Task<Player?> GetByIdAsync(int id)
