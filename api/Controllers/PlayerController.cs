@@ -36,7 +36,7 @@ namespace api.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById([FromRoute] int id)
         {
-            var player = await _context.Players.FindAsync(id);
+            var player = await _playerRepo.GetByIdAsync(id);
 
             if (player == null)
             {
@@ -50,8 +50,7 @@ namespace api.Controllers
         public async Task<IActionResult> Create([FromBody] CreatePlayerRequestDto playerDto)
         {
             var playerModel = playerDto.ToPlayerFromCreateDto();
-            await _context.Players.AddAsync(playerModel);
-            await _context.SaveChangesAsync();
+            await _playerRepo.CreateAsync(playerModel);
             return CreatedAtAction(nameof(GetById), new { id = playerModel.Id }, playerModel.ToPlayerDto());
         }
 
@@ -59,25 +58,12 @@ namespace api.Controllers
         [Route("{id}")]
         public async Task<IActionResult> Update([FromRoute] int id, [FromBody] UpdatePlayerRequestDto updateDto)
         {
-            var playerModel = await _context.Players.FirstOrDefaultAsync(x => x.Id == id);
+            var playerModel = await _playerRepo.UpdateAsync(id, updateDto);
 
             if (playerModel == null)
             {
                 return NotFound();
             }
-
-            playerModel.PlayerName = updateDto.PlayerName;
-            playerModel.InsideScoring = updateDto.InsideScoring;
-            playerModel.MidRangeShooting = updateDto.MidRangeShooting;
-            playerModel.LongRangeShooting = updateDto.LongRangeShooting;
-            playerModel.PerimeterDefense = updateDto.PerimeterDefense;
-            playerModel.InsideDefense = updateDto.InsideDefense;
-            playerModel.Playmaking = updateDto.Playmaking;
-            playerModel.Rebound = updateDto.Rebound;
-            playerModel.BallHandling = updateDto.BallHandling;
-            playerModel.Multiplier = updateDto.Multiplier;
-
-            await _context.SaveChangesAsync();
 
             return Ok(playerModel.ToPlayerDto());
         }
@@ -86,16 +72,12 @@ namespace api.Controllers
         [Route("{id}")]
         public async Task<IActionResult> Delete([FromRoute] int id)
         {
-            var playerModel = await _context.Players.FirstOrDefaultAsync(x => x.Id == id);
+            var playerModel = await _playerRepo.DeleteAsync(id);
 
             if (playerModel == null)
             {
                 return NotFound();
             }
-
-            _context.Players.Remove(playerModel);
-
-            await _context.SaveChangesAsync();
 
             return NoContent();
         }
