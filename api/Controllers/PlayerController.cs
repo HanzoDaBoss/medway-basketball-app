@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using api.Data;
 using api.Dtos.Player;
+using api.Interfaces;
 using api.Mappers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -15,15 +16,17 @@ namespace api.Controllers
     public class PlayerController : ControllerBase
     {
         private readonly ApplicationDBContext _context;
-        public PlayerController(ApplicationDBContext context)
+        private readonly IPlayerRepository _playerRepo;
+        public PlayerController(ApplicationDBContext context, IPlayerRepository playerRepo)
         {
+            _playerRepo = playerRepo;
             _context = context;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var players = await _context.Players.ToListAsync();
+            var players = await _playerRepo.GetAllAsync();
 
             var playerDto = players.Select(p => p.ToPlayerDto());
 
