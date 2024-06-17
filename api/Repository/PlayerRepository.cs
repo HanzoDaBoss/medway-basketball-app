@@ -44,6 +44,17 @@ namespace api.Repository
         {
             var players = _context.Players.AsQueryable();
 
+            if (!string.IsNullOrWhiteSpace(query.SortBy))
+            {
+                string[] playerProperties = ["InsideScoring", "MidRangeShooting", "LongRangeShooting", "PerimeterDefense", "InsideDefense", "Playmaking", "Rebound", "BallHandling"];
+
+                if (query.SortBy.Equals("InsideScoring", StringComparison.OrdinalIgnoreCase))
+                {
+                    players = query.IsDescending ? players.OrderByDescending(p => p.InsideScoring) : players.OrderBy(p => p.InsideScoring);
+                }
+
+            }
+
             return await players.ToListAsync();
         }
 
