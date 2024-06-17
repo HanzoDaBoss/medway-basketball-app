@@ -33,7 +33,7 @@ namespace api.Controllers
             return Ok(playerDto);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public async Task<IActionResult> GetById([FromRoute] int id)
         {
             var player = await _playerRepo.GetByIdAsync(id);
@@ -55,7 +55,7 @@ namespace api.Controllers
         }
 
         [HttpPut]
-        [Route("{id}")]
+        [Route("{id:int}")]
         public async Task<IActionResult> Update([FromRoute] int id, [FromBody] UpdatePlayerRequestDto updateDto)
         {
             var playerModel = await _playerRepo.UpdateAsync(id, updateDto);
@@ -69,7 +69,7 @@ namespace api.Controllers
         }
 
         [HttpDelete]
-        [Route("{id}")]
+        [Route("{id:int}")]
         public async Task<IActionResult> Delete([FromRoute] int id)
         {
             var playerModel = await _playerRepo.DeleteAsync(id);
