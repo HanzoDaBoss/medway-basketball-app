@@ -49,9 +49,29 @@ namespace api.Repository
             return await _context.Players.FindAsync(id);
         }
 
-        public Task<Player?> UpdateAsync(int id, UpdatePlayerRequestDto playerDto)
+        public async Task<Player?> UpdateAsync(int id, UpdatePlayerRequestDto playerDto)
         {
-            throw new NotImplementedException();
+            var existingPlayer = await _context.Players.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (existingPlayer == null)
+            {
+                return null;
+            }
+
+            existingPlayer.PlayerName = playerDto.PlayerName;
+            existingPlayer.InsideScoring = playerDto.InsideScoring;
+            existingPlayer.MidRangeShooting = playerDto.MidRangeShooting;
+            existingPlayer.LongRangeShooting = playerDto.LongRangeShooting;
+            existingPlayer.PerimeterDefense = playerDto.PerimeterDefense;
+            existingPlayer.InsideDefense = playerDto.InsideDefense;
+            existingPlayer.Playmaking = playerDto.Playmaking;
+            existingPlayer.Rebound = playerDto.Rebound;
+            existingPlayer.BallHandling = playerDto.BallHandling;
+            existingPlayer.Multiplier = playerDto.Multiplier;
+
+            await _context.SaveChangesAsync();
+
+            return existingPlayer;
         }
     }
 }
