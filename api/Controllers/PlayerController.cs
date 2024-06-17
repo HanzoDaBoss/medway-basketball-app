@@ -26,6 +26,9 @@ namespace api.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             var players = await _playerRepo.GetAllAsync();
 
             var playerDto = players.Select(p => p.ToPlayerDto());
@@ -36,6 +39,9 @@ namespace api.Controllers
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetById([FromRoute] int id)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             var player = await _playerRepo.GetByIdAsync(id);
 
             if (player == null)
@@ -49,8 +55,13 @@ namespace api.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreatePlayerRequestDto playerDto)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             var playerModel = playerDto.ToPlayerFromCreateDto();
+
             await _playerRepo.CreateAsync(playerModel);
+
             return CreatedAtAction(nameof(GetById), new { id = playerModel.Id }, playerModel.ToPlayerDto());
         }
 
@@ -58,6 +69,9 @@ namespace api.Controllers
         [Route("{id:int}")]
         public async Task<IActionResult> Update([FromRoute] int id, [FromBody] UpdatePlayerRequestDto updateDto)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             var playerModel = await _playerRepo.UpdateAsync(id, updateDto);
 
             if (playerModel == null)
@@ -72,6 +86,9 @@ namespace api.Controllers
         [Route("{id:int}")]
         public async Task<IActionResult> Delete([FromRoute] int id)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
             var playerModel = await _playerRepo.DeleteAsync(id);
 
             if (playerModel == null)
