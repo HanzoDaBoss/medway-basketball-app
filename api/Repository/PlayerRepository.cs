@@ -25,9 +25,18 @@ namespace api.Repository
             return playerModel;
         }
 
-        public Task<Player?> DeleteAsync(int id)
+        public async Task<Player?> DeleteAsync(int id)
         {
-            throw new NotImplementedException();
+            var playerModel = await _context.Players.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (playerModel == null)
+            {
+                return null;
+            }
+
+            _context.Players.Remove(playerModel);
+            await _context.SaveChangesAsync();
+            return playerModel;
         }
 
         public Task<List<Player>> GetAllAsync()
