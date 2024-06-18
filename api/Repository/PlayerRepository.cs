@@ -43,12 +43,12 @@ namespace api.Repository
         public async Task<List<Player>> GetAllAsync(QueryObject query)
         {
             var players = _context.Players.AsQueryable();
+            var players2 = _context.Players.AsEnumerable();
 
             if (!string.IsNullOrWhiteSpace(query.SortBy))
             {
                 if (query.SortBy.Equals("OverallRating", StringComparison.OrdinalIgnoreCase))
                 {
-                    var players2 = _context.Players.AsEnumerable();
                     players2 = query.IsDescending ? players2.OrderByDescending(p => p.OverallRating) : players2.OrderBy(p => p.OverallRating);
                     return players2.ToList();
                 }
