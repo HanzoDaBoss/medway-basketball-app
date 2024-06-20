@@ -25,7 +25,8 @@ builder.Services.AddIdentity<User, IdentityRole>(options =>
     options.Password.RequireUppercase = true;
     options.Password.RequireNonAlphanumeric = true;
     options.Password.RequiredLength = 8;
-});
+})
+.AddEntityFrameworkStores<ApplicationDBContext>();
 
 builder.Services.AddScoped<IPlayerRepository, PlayerRepository>();
 
