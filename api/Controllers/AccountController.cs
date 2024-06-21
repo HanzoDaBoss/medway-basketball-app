@@ -37,7 +37,7 @@ namespace api.Controllers
 
                 if (createdUser.Succeeded)
                 {
-                    var roleResult = await _userManager.AddToRoleAsync(user, "User");
+                    var roleResult = await _userManager.AddToRoleAsync(user, "Admin");
                     if (roleResult.Succeeded)
                     {
                         return Ok("User created");
