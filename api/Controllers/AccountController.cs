@@ -19,6 +19,7 @@ namespace api.Controllers
         public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
         {
             _userManager = userManager;
+            _signinManager = signInManager;
         }
 
         [HttpPost("login")]
