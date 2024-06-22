@@ -18,6 +18,13 @@ namespace api.Controllers
         {
             _userManager = userManager;
         }
+
+        [HttpPost("login")]
+        public async Task<ActionResult> Login(LoginDto loginDto)
+        {
+
+        }
+
         [HttpPost("register")]
         public async Task<ActionResult> Register([FromBody] RegisterDto registerDto)
         {
