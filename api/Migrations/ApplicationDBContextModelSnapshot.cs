@@ -210,7 +210,7 @@ namespace api.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Players");
+                    b.ToTable("Players", (string)null);
                 });
 
             modelBuilder.Entity("api.Models.User", b =>
