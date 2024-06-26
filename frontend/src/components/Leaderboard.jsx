@@ -15,9 +15,13 @@ export default function Leaderboard() {
       <header>hi</header>
       <h2>This is the leaderboard</h2>
       <div>
-        {playerList.map((player) => {
+        {playerList.map((player, index) => {
           return (
-            <div style={{display: "flex", flexDirection: "row", gap: 10}}>
+            <div
+              key={index}
+              style={{display: "flex", flexDirection: "row", gap: 10}}
+            >
+              <p>{index + 1}</p>
               <p>{player.playerName}</p>
               <p>{player.insideScoring}</p>
               <p>{player.midRangeShooting}</p>
