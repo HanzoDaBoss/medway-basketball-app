@@ -32,7 +32,7 @@ export default function Leaderboard() {
               <p>{player.rebound}</p>
               <p>{player.ballHandling}</p>
               <p>{player.rebound}</p>
-              <p>{player.overallRating}</p>
+              <p>{Math.round(player.overallRating)}</p>
             </div>
           );
         })}
