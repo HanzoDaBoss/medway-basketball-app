@@ -2,11 +2,15 @@ import {useState} from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
+import {Route, Routes} from "react-router-dom";
+import Leaderboard from "./components/Leaderboard";
 
 function App() {
   return (
     <>
-      <header>Yo</header>
+      <Routes>
+        <Route path="/" element={<Leaderboard />}></Route>
+      </Routes>
     </>
   );
 }
