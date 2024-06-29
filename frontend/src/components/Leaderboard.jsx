@@ -15,7 +15,7 @@ export default function Leaderboard() {
       <header>hi</header>
       <h2>This is the leaderboard</h2>
       <table class="min-w-full text-left text-sm font-light text-surface dark:text-white">
-        <thead>
+        <thead className="border-b border-neutral-200 font-medium dark:border-white/10">
           <tr>
             <th>Position</th>
             <th>Name</th>
