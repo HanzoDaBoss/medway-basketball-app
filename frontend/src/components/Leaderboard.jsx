@@ -17,17 +17,72 @@ export default function Leaderboard() {
       <table className="min-w-full border border-neutral-200 text-center text-sm font-light text-surface dark:border-white/10 dark:text-white">
         <thead className="border-b border-neutral-200 font-medium dark:border-white/10">
           <tr>
-            <th>Position</th>
-            <th>Name</th>
-            <th>InsideScoring</th>
-            <th>MidRangeScoring</th>
-            <th>LongRangeShooting</th>
-            <th>PerimeterDefense</th>
-            <th>InsideDefense</th>
-            <th>Playmaking</th>
-            <th>Rebound</th>
-            <th>BallHandling</th>
-            <th>OverallRating</th>
+            <th
+              scope="col"
+              className="border-e border-neutral-200 px-6 py-4 dark:border-white/10"
+            >
+              Position
+            </th>
+            <th
+              scope="col"
+              className="border-e border-neutral-200 px-6 py-4 dark:border-white/10"
+            >
+              Name
+            </th>
+            <th
+              scope="col"
+              className="border-e border-neutral-200 px-6 py-4 dark:border-white/10"
+            >
+              InsideScoring
+            </th>
+            <th
+              scope="col"
+              className="border-e border-neutral-200 px-6 py-4 dark:border-white/10"
+            >
+              MidRangeScoring
+            </th>
+            <th
+              scope="col"
+              className="border-e border-neutral-200 px-6 py-4 dark:border-white/10"
+            >
+              LongRangeShooting
+            </th>
+            <th
+              scope="col"
+              className="border-e border-neutral-200 px-6 py-4 dark:border-white/10"
+            >
+              PerimeterDefense
+            </th>
+            <th
+              scope="col"
+              className="border-e border-neutral-200 px-6 py-4 dark:border-white/10"
+            >
+              InsideDefense
+            </th>
+            <th
+              scope="col"
+              className="border-e border-neutral-200 px-6 py-4 dark:border-white/10"
+            >
+              Playmaking
+            </th>
+            <th
+              scope="col"
+              className="border-e border-neutral-200 px-6 py-4 dark:border-white/10"
+            >
+              Rebound
+            </th>
+            <th
+              scope="col"
+              className="border-e border-neutral-200 px-6 py-4 dark:border-white/10"
+            >
+              BallHandling
+            </th>
+            <th
+              scope="col"
+              className="border-e border-neutral-200 px-6 py-4 dark:border-white/10"
+            >
+              OverallRating
+            </th>
           </tr>
         </thead>
         {playerList.map((player, index) => {
