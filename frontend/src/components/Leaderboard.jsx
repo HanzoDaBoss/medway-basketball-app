@@ -14,7 +14,7 @@ export default function Leaderboard() {
     <>
       <header>hi</header>
       <h2>This is the leaderboard</h2>
-      <table class="table-auto bg-slate-600">
+      <table class="min-w-full text-left text-sm font-light text-surface dark:text-white">
         <thead>
           <tr>
             <th>Position</th>
@@ -33,17 +33,19 @@ export default function Leaderboard() {
         {playerList.map((player, index) => {
           return (
             <tbody>
-              <td>{index + 1}</td>
-              <td>{player.playerName}</td>
-              <td>{player.insideScoring}</td>
-              <td>{player.midRangeShooting}</td>
-              <td>{player.longRangeShooting}</td>
-              <td>{player.perimeterDefense}</td>
-              <td>{player.insideDefense}</td>
-              <td>{player.playmaking}</td>
-              <td>{player.rebound}</td>
-              <td>{player.ballHandling}</td>
-              <td>{Math.round(player.overallRating)}</td>
+              <tr className="border-b border-neutral-200 dark:border-white/10">
+                <td>{index + 1}</td>
+                <td>{player.playerName}</td>
+                <td>{player.insideScoring}</td>
+                <td>{player.midRangeShooting}</td>
+                <td>{player.longRangeShooting}</td>
+                <td>{player.perimeterDefense}</td>
+                <td>{player.insideDefense}</td>
+                <td>{player.playmaking}</td>
+                <td>{player.rebound}</td>
+                <td>{player.ballHandling}</td>
+                <td>{Math.round(player.overallRating)}</td>
+              </tr>
             </tbody>
           );
         })}
