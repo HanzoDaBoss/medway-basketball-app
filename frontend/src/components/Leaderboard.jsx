@@ -21,7 +21,7 @@ export default function Leaderboard() {
               scope="col"
               className="border-e border-neutral-200 px-6 py-4 dark:border-white/10"
             >
-              Position
+              #
             </th>
             <th
               scope="col"
@@ -33,55 +33,55 @@ export default function Leaderboard() {
               scope="col"
               className="border-e border-neutral-200 px-6 py-4 dark:border-white/10"
             >
-              InsideScoring
+              IS
             </th>
             <th
               scope="col"
               className="border-e border-neutral-200 px-6 py-4 dark:border-white/10"
             >
-              MidRangeScoring
+              MRS
             </th>
             <th
               scope="col"
               className="border-e border-neutral-200 px-6 py-4 dark:border-white/10"
             >
-              LongRangeShooting
+              LRS
             </th>
             <th
               scope="col"
               className="border-e border-neutral-200 px-6 py-4 dark:border-white/10"
             >
-              PerimeterDefense
+              PD
             </th>
             <th
               scope="col"
               className="border-e border-neutral-200 px-6 py-4 dark:border-white/10"
             >
-              InsideDefense
+              ID
             </th>
             <th
               scope="col"
               className="border-e border-neutral-200 px-6 py-4 dark:border-white/10"
             >
-              Playmaking
+              PM
             </th>
             <th
               scope="col"
               className="border-e border-neutral-200 px-6 py-4 dark:border-white/10"
             >
-              Rebound
+              RB
             </th>
             <th
               scope="col"
               className="border-e border-neutral-200 px-6 py-4 dark:border-white/10"
             >
-              BallHandling
+              BH
             </th>
             <th
               scope="col"
               className="border-e border-neutral-200 px-6 py-4 dark:border-white/10"
             >
-              OverallRating
+              OVR
             </th>
           </tr>
         </thead>
