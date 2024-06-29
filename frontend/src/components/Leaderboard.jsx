@@ -14,7 +14,7 @@ export default function Leaderboard() {
     <>
       <header>hi</header>
       <h2>This is the leaderboard</h2>
-      <table class="table-auto">
+      <table class="table-auto bg-slate-600">
         <thead>
           <tr>
             <th>Position</th>
