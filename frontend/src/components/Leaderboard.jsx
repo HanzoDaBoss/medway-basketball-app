@@ -14,29 +14,40 @@ export default function Leaderboard() {
     <>
       <header>hi</header>
       <h2>This is the leaderboard</h2>
-      <div>
+      <table class="table-auto">
+        <thead>
+          <tr>
+            <th>Position</th>
+            <th>Name</th>
+            <th>InsideScoring</th>
+            <th>MidRangeScoring</th>
+            <th>LongRangeShooting</th>
+            <th>PerimeterDefense</th>
+            <th>InsideDefense</th>
+            <th>Playmaking</th>
+            <th>Rebound</th>
+            <th>BallHandling</th>
+            <th>OverallRating</th>
+          </tr>
+        </thead>
         {playerList.map((player, index) => {
           return (
-            <div
-              key={index}
-              style={{display: "flex", flexDirection: "row", gap: 10}}
-            >
-              <p>{index + 1}</p>
-              <p>{player.playerName}</p>
-              <p>{player.insideScoring}</p>
-              <p>{player.midRangeShooting}</p>
-              <p>{player.longRangeShooting}</p>
-              <p>{player.perimeterDefense}</p>
-              <p>{player.insideDefense}</p>
-              <p>{player.playmaking}</p>
-              <p>{player.rebound}</p>
-              <p>{player.ballHandling}</p>
-              <p>{player.rebound}</p>
-              <p>{Math.round(player.overallRating)}</p>
-            </div>
+            <tbody>
+              <td>{index + 1}</td>
+              <td>{player.playerName}</td>
+              <td>{player.insideScoring}</td>
+              <td>{player.midRangeShooting}</td>
+              <td>{player.longRangeShooting}</td>
+              <td>{player.perimeterDefense}</td>
+              <td>{player.insideDefense}</td>
+              <td>{player.playmaking}</td>
+              <td>{player.rebound}</td>
+              <td>{player.ballHandling}</td>
+              <td>{Math.round(player.overallRating)}</td>
+            </tbody>
           );
         })}
-      </div>
+      </table>
     </>
   );
 }
