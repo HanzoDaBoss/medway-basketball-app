@@ -1,12 +1,14 @@
 import {useEffect, useState} from "react";
 import {getPlayers} from "../api";
+import {gradeConverter} from "../utils/gradeConverter";
 
 export default function Leaderboard() {
   const [playerList, setPlayerList] = useState([]);
 
   useEffect(() => {
     getPlayers("overallRating").then((players) => {
-      setPlayerList(players);
+      const playersWithGrades = gradeConverter(players);
+      setPlayerList(playersWithGrades);
     });
   }, []);
 

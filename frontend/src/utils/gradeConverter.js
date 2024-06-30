@@ -20,7 +20,6 @@ function gradeConverter(playerList) {
         player[attribute] = grades[value];
       }
     });
-    console.log(player);
     return player;
   });
 }
@@ -56,4 +55,4 @@ const testData = [
   },
 ];
 
-gradeConverter(testData);
+export {gradeConverter};
