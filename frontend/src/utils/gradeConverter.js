@@ -15,11 +15,12 @@ function gradeConverter(playerList) {
   };
 
   return playerList.map((player) => {
-    Object.keys(player).forEach((attribute, index) => {
-      if (index > 1 || index < 10) {
-        player[attribute] = grades[attribute];
+    Object.entries(player).forEach(([attribute, value], index) => {
+      if (index > 1 && index < 10) {
+        player[attribute] = grades[value];
       }
     });
+    console.log(player);
     return player;
   });
 }
@@ -54,3 +55,5 @@ const testData = [
     overallRating: 84.37,
   },
 ];
+
+gradeConverter(testData);
