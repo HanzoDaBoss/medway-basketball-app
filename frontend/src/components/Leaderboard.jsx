@@ -12,8 +12,7 @@ export default function Leaderboard() {
 
   return (
     <>
-      <header>hi</header>
-      <h2>This is the leaderboard</h2>
+      <header>Leaderboard</header>
       <table className="min-w-full border border-neutral-200 text-center text-sm font-light text-surface dark:border-white/10 dark:text-white">
         <thead className="border-b border-neutral-200 font-medium dark:border-white/10">
           <tr>
@@ -88,7 +87,7 @@ export default function Leaderboard() {
         {playerList.map((player, index) => {
           return (
             <tbody>
-              <tr className="border-b border-neutral-200 dark:border-white/10">
+              <tr className="border-b border-neutral-200 dark:border-white/10 ">
                 <td className="whitespace-nowrap border-e border-neutral-200 px-6 py-4 font-medium dark:border-white/10">
                   {index + 1}
                 </td>
