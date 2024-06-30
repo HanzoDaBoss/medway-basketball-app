@@ -14,7 +14,7 @@ function gradeConverter(playerList) {
     58: "D-",
   };
 
-  playerList.map((player) => {
+  return playerList.map((player) => {
     Object.keys(player).forEach((attribute, index) => {
       if (index > 1 || index < 10) {
         player[attribute] = grades[attribute];
@@ -23,3 +23,34 @@ function gradeConverter(playerList) {
     return player;
   });
 }
+
+const testData = [
+  {
+    id: 1,
+    playerName: "Omor",
+    insideScoring: 95,
+    midRangeShooting: 95,
+    longRangeShooting: 82,
+    perimeterDefense: 90,
+    insideDefense: 95,
+    playmaking: 95,
+    rebound: 95,
+    ballHandling: 90,
+    multiplier: 1,
+    overallRating: 92.125,
+  },
+  {
+    id: 2,
+    playerName: "Rahat",
+    insideScoring: 85,
+    midRangeShooting: 74,
+    longRangeShooting: 58,
+    perimeterDefense: 90,
+    insideDefense: 85,
+    playmaking: 90,
+    rebound: 85,
+    ballHandling: 82,
+    multiplier: 1.04,
+    overallRating: 84.37,
+  },
+];
