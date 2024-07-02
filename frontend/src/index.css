@@ -18,7 +18,15 @@
 }
 
 body {
-  margin: 0;
+  /* margin: 0; */
+  /* display: flex; */
+  /* place-items: center stretch; */
+}
+
+@media only screen and (max-width: 476px) {
+  body {
+      /* margin: 0; */
   display: flex;
-  place-items: center;
+  /* place-items: center stretch; */
+  }
 }
