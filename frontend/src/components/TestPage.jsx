@@ -13,16 +13,22 @@ const TestPage = () => {
   // Array containing navigation items
   const navItems = [
     {id: 1, text: "Home"},
-    {id: 2, text: "Company"},
-    {id: 3, text: "Resources"},
-    {id: 4, text: "About"},
-    {id: 5, text: "Contact"},
+    {id: 2, text: "NBA News"},
+    {id: 3, text: "Create"},
+    {id: 4, text: "Admin"},
   ];
 
   return (
     <div className="bg-black flex justify-between items-center h-24 max-w-[100] mx-auto px-4 text-white">
       {/* Logo */}
       <h1 className="w-full text-3xl font-bold text-[#00df9a]">REACT.</h1>
+      <div className="flex flex-shrink-0 items-center">
+        <img
+          className="h-8 w-auto"
+          src="https://images.vexels.com/media/users/3/127117/isolated/svg/75741f0d611d334c461b2d184ead2c70.svg"
+          alt="Your Company"
+        />
+      </div>
 
       {/* Desktop Navigation */}
       <ul className="hidden md:flex">
