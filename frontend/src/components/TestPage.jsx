@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import {AiOutlineClose, AiOutlineMenu} from "react-icons/ai";
+import {Link} from "react-router-dom";
 
 const TestPage = () => {
   // State to manage the navbar's visibility
@@ -12,10 +13,10 @@ const TestPage = () => {
 
   // Array containing navigation items
   const navItems = [
-    {id: 1, text: "Home"},
-    {id: 2, text: "NBA News"},
-    {id: 3, text: "Create"},
-    {id: 4, text: "Admin"},
+    {id: 1, text: "Home", link: "/"},
+    {id: 2, text: "NBA News", link: "nba-news"},
+    {id: 3, text: "Create", link: "create"},
+    {id: 4, text: "Admin", link: "admin"},
   ];
 
   return (
@@ -37,7 +38,7 @@ const TestPage = () => {
             key={item.id}
             className="p-4 hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300 hover:text-black"
           >
-            {item.text}
+            <Link to={`/${item.link}`}>{item.text}</Link>
           </li>
         ))}
       </ul>
