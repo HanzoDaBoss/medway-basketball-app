@@ -13,7 +13,7 @@ const TestPage = () => {
 
   // Array containing navigation items
   const navItems = [
-    {id: 1, text: "Home", link: "/"},
+    {id: 1, text: "Home", link: ""},
     {id: 2, text: "NBA News", link: "nba-news"},
     {id: 3, text: "Create", link: "create"},
     {id: 4, text: "Admin", link: "admin"},
