@@ -21,8 +21,8 @@ const TestPage = () => {
   return (
     <div className="bg-black flex justify-between items-center h-24 max-w-[100] mx-auto px-4 text-white">
       {/* Logo */}
-      <h1 className="w-full text-3xl font-bold text-[#00df9a]">REACT.</h1>
-      <div className="flex flex-shrink-0 items-center">
+      {/* <h1 className="w-full text-3xl font-bold text-[#00df9a]">REACT.</h1> */}
+      <div className="flex flex-shrink-0 items-center ml-5">
         <img
           className="h-8 w-auto"
           src="https://images.vexels.com/media/users/3/127117/isolated/svg/75741f0d611d334c461b2d184ead2c70.svg"
@@ -56,7 +56,14 @@ const TestPage = () => {
         }
       >
         {/* Mobile Logo */}
-        <h1 className="w-full text-3xl font-bold text-[#00df9a] m-4">REACT.</h1>
+        {/* <h1 className="w-full text-3xl font-bold text-[#00df9a] m-4">REACT.</h1> */}
+        <div className="w-100 flex flex-shrink-0 items-center justify-center m-5">
+          <img
+            className="h-8 w-auto"
+            src="https://images.vexels.com/media/users/3/127117/isolated/svg/75741f0d611d334c461b2d184ead2c70.svg"
+            alt="Your Company"
+          />
+        </div>
 
         {/* Mobile Navigation Items */}
         {navItems.map((item) => (
