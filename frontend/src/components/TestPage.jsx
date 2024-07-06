@@ -34,12 +34,14 @@ const TestPage = () => {
       {/* Desktop Navigation */}
       <ul className="hidden md:flex">
         {navItems.map((item) => (
-          <li
-            key={item.id}
-            className="p-4 hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300 hover:text-black"
-          >
-            <Link to={`/${item.link}`}>{item.text}</Link>
-          </li>
+          <Link to={`/${item.link}`}>
+            <li
+              key={item.id}
+              className="p-4 hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300 hover:text-black"
+            >
+              {item.text}
+            </li>
+          </Link>
         ))}
       </ul>
 
@@ -68,12 +70,14 @@ const TestPage = () => {
 
         {/* Mobile Navigation Items */}
         {navItems.map((item) => (
-          <li
-            key={item.id}
-            className="p-4 border-b rounded-xl hover:bg-[#00df9a] duration-300 hover:text-black cursor-pointer border-gray-600"
-          >
-            {item.text}
-          </li>
+          <Link to={`/${item.link}`}>
+            <li
+              key={item.id}
+              className="p-4 border-b rounded-xl hover:bg-[#00df9a] duration-300 hover:text-black cursor-pointer border-gray-600"
+            >
+              {item.text}
+            </li>
+          </Link>
         ))}
       </ul>
     </div>
