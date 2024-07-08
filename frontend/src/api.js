@@ -12,7 +12,6 @@ const getPlayers = (sort_by) => {
       },
     })
     .then(({data}) => {
-      console.log(data);
       return data;
     })
     .catch((error) => {
@@ -20,4 +19,15 @@ const getPlayers = (sort_by) => {
     });
 };
 
-export {getPlayers};
+const postPlayer = (player) => {
+  return api
+    .post(`/players`, player)
+    .then(({data}) => {
+      return data;
+    })
+    .catch((error) => {
+      return error.response;
+    });
+};
+
+export {getPlayers, postPlayer};
