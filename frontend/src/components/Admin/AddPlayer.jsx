@@ -1,4 +1,6 @@
 import {useState} from "react";
+import {postPlayer} from "../../api";
+import {playerConverter} from "../../utils/playerConverter";
 
 export default function AddPlayer() {
   const attributes = [
@@ -40,20 +42,38 @@ export default function AddPlayer() {
     multiplier: 0,
   });
 
+  const [postedPlayer, setPostedPlayer] = useState(true);
+
   const handlePlayerInput = (e) => {
     setPlayerInput((currentPlayerInput) => {
       return {...currentPlayerInput, [e.target.name]: e.target.value};
     });
-    console.log(playerInput);
   };
 
   const submitPlayer = (e) => {
     e.preventDefault();
+    const formattedPlayer = playerConverter(playerInput);
+    postPlayer(formattedPlayer).then((player) => {
+      setPostedPlayer(true);
+    });
   };
 
-  return (
+  return postedPlayer ? (
+    <div class="flex flex-col items-center justify-center">
+      <button
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 my-2 rounded focus:outline-none focus:shadow-outline"
+        type="button"
+        onClick={() => setPostedPlayer(false)}
+      >
+        Add new player
+      </button>
+    </div>
+  ) : (
     <div class="w-full max-w-xs">
-      <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <form
+        class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+        onSubmit={submitPlayer}
+      >
         <div class="mb-4">
           <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
             Name
