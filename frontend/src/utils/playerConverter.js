@@ -13,14 +13,14 @@ function playerConverter(player) {
     D: 62,
     "D-": 58,
   };
-
-  Object.entries(player).forEach(([attribute, value], index) => {
+  const playerCopy = JSON.parse(JSON.stringify(player));
+  Object.entries(playerCopy).forEach(([attribute, value], index) => {
     if (index > 0 && index < 9) {
-      player[attribute] = grades[value];
+      playerCopy[attribute] = grades[value];
     }
   });
 
-  return player;
+  return playerCopy;
 }
 
 const testData = {

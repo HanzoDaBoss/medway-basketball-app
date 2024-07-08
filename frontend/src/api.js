@@ -23,6 +23,7 @@ const postPlayer = (player) => {
   return api
     .post(`/players`, player)
     .then(({data}) => {
+      console.log(data);
       return data;
     })
     .catch((error) => {

@@ -1,6 +1,7 @@
 import {useState} from "react";
 import {postPlayer} from "../../api";
 import {playerConverter} from "../../utils/playerConverter";
+import {ovrCalculator} from "../../utils/ovrCalculator";
 
 export default function AddPlayer() {
   const attributes = [
@@ -43,11 +44,14 @@ export default function AddPlayer() {
   });
 
   const [postedPlayer, setPostedPlayer] = useState(true);
+  const [inputOVR, setInputOVR] = useState(0);
 
   const handlePlayerInput = (e) => {
+    const formattedPlayer = playerConverter(playerInput);
     setPlayerInput((currentPlayerInput) => {
       return {...currentPlayerInput, [e.target.name]: e.target.value};
     });
+    setInputOVR(ovrCalculator(formattedPlayer));
   };
 
   const submitPlayer = (e) => {
@@ -70,10 +74,7 @@ export default function AddPlayer() {
     </div>
   ) : (
     <div class="w-full max-w-xs">
-      <form
-        class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
-        onSubmit={submitPlayer}
-      >
+      <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <div class="mb-4">
           <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
             Name
@@ -134,9 +135,19 @@ export default function AddPlayer() {
         </div>
 
         <div class="flex items-center justify-center">
+          <label
+            class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+            for="grid-ovr"
+          >
+            Calculated OVR: {inputOVR}
+          </label>
+        </div>
+
+        <div class="flex items-center justify-center">
           <button
             class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 my-2 rounded focus:outline-none focus:shadow-outline"
             type="button"
+            onClick={submitPlayer}
           >
             ADD
           </button>
