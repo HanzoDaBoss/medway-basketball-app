@@ -4,15 +4,26 @@ import {gradeConverter} from "../utils/gradeConverter";
 
 export default function Leaderboard() {
   const [playerList, setPlayerList] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     getPlayers("overallRating").then((players) => {
       const playersWithGrades = gradeConverter(players);
       setPlayerList(playersWithGrades);
+      setLoading(false);
     });
   }, []);
 
-  return (
+  return loading ? (
+    <>
+      <header>Leaderboard</header>
+      <button type="button" class="bg-indigo-500 ..." disabled>
+        <svg class="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24"></svg>
+        Loading...
+      </button>
+    </>
+  ) : (
     <>
       <header>Leaderboard</header>
       <div class="inline-block min-w-full py-2 sm:px-6 lg:px-14">
