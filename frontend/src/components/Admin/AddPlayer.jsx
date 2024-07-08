@@ -8,7 +8,6 @@ export default function AddPlayer() {
     {id: 6, abbrieviation: "PM", text: "Playmaking"},
     {id: 7, abbrieviation: "RB", text: "Rebound"},
     {id: 8, abbrieviation: "BH", text: "Ball Handling"},
-    {id: 9, abbrieviation: "OVR", text: "Overall Rating"},
   ];
 
   return (
@@ -19,7 +18,7 @@ export default function AddPlayer() {
             Name
           </label>
           <input
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="text-center shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="name"
             type="text"
             placeholder="Name"
@@ -37,7 +36,7 @@ export default function AddPlayer() {
                   {attribute.abbrieviation}
                 </label>
                 <input
-                  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  className="text-center appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   id={`grid-${attribute.text}`}
                   type="text"
                   placeholder=""
