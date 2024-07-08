@@ -1,14 +1,55 @@
+import {useState} from "react";
+
 export default function AddPlayer() {
   const attributes = [
-    {id: 1, abbrieviation: "IS", text: "Inside Scoring"},
-    {id: 2, abbrieviation: "MRS", text: "Mid Range Shooting"},
-    {id: 3, abbrieviation: "LRS", text: "Long Range Shooting"},
-    {id: 4, abbrieviation: "PD", text: "Perimeter Defense"},
-    {id: 5, abbrieviation: "ID", text: "Inside Defense"},
-    {id: 6, abbrieviation: "PM", text: "Playmaking"},
-    {id: 7, abbrieviation: "RB", text: "Rebound"},
-    {id: 8, abbrieviation: "BH", text: "Ball Handling"},
+    {id: 1, abbrieviation: "IS", text: "Inside Scoring", key: "insideScoring"},
+    {
+      id: 2,
+      abbrieviation: "MRS",
+      text: "Mid Range Shooting",
+      key: "midRangeShooting",
+    },
+    {
+      id: 3,
+      abbrieviation: "LRS",
+      text: "Long Range Shooting",
+      key: "longRangeShooting",
+    },
+    {
+      id: 4,
+      abbrieviation: "PD",
+      text: "Perimeter Defense",
+      key: "perimeterDefense",
+    },
+    {id: 5, abbrieviation: "ID", text: "Inside Defense", key: "insideDefense"},
+    {id: 6, abbrieviation: "PM", text: "Playmaking", key: "playmaking"},
+    {id: 7, abbrieviation: "RB", text: "Rebound", key: "rebound"},
+    {id: 8, abbrieviation: "BH", text: "Ball Handling", key: "ballHandling"},
   ];
+
+  const [playerInput, setPlayerInput] = useState({
+    playerName: "",
+    insideScoring: "",
+    midRangeShooting: "",
+    longRangeShooting: "",
+    perimeterDefense: "",
+    insideDefense: "",
+    playmaking: "",
+    rebound: "",
+    ballHandling: "",
+    multiplier: 0,
+  });
+
+  const handlePlayerInput = (e) => {
+    setPlayerInput((currentPlayerInput) => {
+      return {...currentPlayerInput, [e.target.name]: e.target.value};
+    });
+    console.log(playerInput);
+  };
+
+  const submitPlayer = (e) => {
+    e.preventDefault();
+  };
 
   return (
     <div class="w-full max-w-xs">
@@ -21,7 +62,10 @@ export default function AddPlayer() {
             className="text-center shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
             id="name"
             type="text"
+            name="playerName"
             placeholder="Name"
+            value={playerInput.playerName}
+            onChange={handlePlayerInput}
           />
         </div>
 
@@ -39,7 +83,10 @@ export default function AddPlayer() {
                   className="text-center appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                   id={`grid-${attribute.text}`}
                   type="text"
+                  name={attribute.key}
                   placeholder=""
+                  value={playerInput[attribute.key]}
+                  onChange={handlePlayerInput}
                 />
               </div>
             );
@@ -55,10 +102,13 @@ export default function AddPlayer() {
               Multiplier
             </label>
             <input
-              class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+              class="text-center appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
               id="grid-multiplier"
-              type="text"
+              type="number"
+              name="multiplier"
               placeholder=""
+              value={playerInput.multiplier}
+              onChange={handlePlayerInput}
             />
           </div>
         </div>
