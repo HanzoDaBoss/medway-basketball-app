@@ -20,7 +20,7 @@ const TestPage = () => {
   ];
 
   return (
-    <div className="bg-black flex justify-between items-center h-24 max-w-[100] mx-auto px-4 text-white">
+    <div className="bg-black flex justify-between items-center h-24 w-100 mx-auto px-4 text-white">
       {/* Logo */}
       {/* <h1 className="w-full text-3xl font-bold text-[#00df9a]">REACT.</h1> */}
       <div className="flex flex-shrink-0 items-center ml-5">
