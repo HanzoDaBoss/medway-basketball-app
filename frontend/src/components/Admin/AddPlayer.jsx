@@ -2,7 +2,7 @@ import {useState} from "react";
 import {postPlayer} from "../../api";
 import {playerConverter} from "../../utils/playerConverter";
 import {ovrCalculator} from "../../utils/ovrCalculator";
-import AddPlayerButton from "./AddPlayerButton";
+import SubmitPlayerButton from "./SubmitPlayerButton";
 
 export default function AddPlayer() {
   const attributes = [
@@ -156,7 +156,7 @@ export default function AddPlayer() {
         </div>
 
         <div class="flex items-center justify-center">
-          <AddPlayerButton loading={loading} submitPlayer={submitPlayer} />
+          <SubmitPlayerButton loading={loading} submitPlayer={submitPlayer} />
         </div>
       </form>
     </div>

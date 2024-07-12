@@ -1,4 +1,5 @@
 import AddPlayer from "./AddPlayer";
+import EditPlayers from "./EditPlayers";
 
 export default function AdminPage() {
   return (
@@ -6,6 +7,7 @@ export default function AdminPage() {
       <h1>ADMIN</h1>
 
       <AddPlayer />
+      <EditPlayers />
     </div>
   );
 }
