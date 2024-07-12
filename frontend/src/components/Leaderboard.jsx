@@ -23,7 +23,7 @@ export default function Leaderboard() {
   ) : (
     <>
       <header>Leaderboard</header>
-      <div class="inline-block min-w-100 py-2 sm:px-6 lg:px-20">
+      <div class="inline-block min-w-100 py-2 sm:px-6 lg:px-14">
         <table className="min-w-full border border-neutral-200 text-center text-sm font-light text-surface dark:border-white/10 dark:text-white">
           <thead className="border-b border-neutral-200 font-medium dark:border-white/10">
             <tr>
