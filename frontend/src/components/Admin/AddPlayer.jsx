@@ -2,6 +2,7 @@ import {useState} from "react";
 import {postPlayer} from "../../api";
 import {playerConverter} from "../../utils/playerConverter";
 import {ovrCalculator} from "../../utils/ovrCalculator";
+import AddPlayerButton from "./AddPlayerButton";
 
 export default function AddPlayer() {
   const attributes = [
@@ -43,8 +44,10 @@ export default function AddPlayer() {
     multiplier: 0,
   });
 
-  const [postedPlayer, setPostedPlayer] = useState(true);
+  const [addPlayer, setAddPlayer] = useState(false);
+  const [postedPlayer, setPostedPlayer] = useState(false);
   const [inputOVR, setInputOVR] = useState(0);
+  const [loading, setLoading] = useState(false);
 
   const handlePlayerInput = (e) => {
     const formattedPlayer = playerConverter(playerInput);
@@ -56,31 +59,40 @@ export default function AddPlayer() {
 
   const submitPlayer = (e) => {
     e.preventDefault();
+    setLoading(true);
     const formattedPlayer = playerConverter(playerInput);
     postPlayer(formattedPlayer).then((player) => {
+      setLoading(false);
       setPostedPlayer(true);
     });
   };
 
-  return postedPlayer ? (
+  return !addPlayer ? (
     <div class="flex flex-col items-center justify-center">
       <button
         class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 my-2 rounded focus:outline-none focus:shadow-outline"
         type="button"
-        onClick={() => setPostedPlayer(false)}
+        onClick={() => setAddPlayer(true)}
       >
         Add new player
       </button>
     </div>
-  ) : (
+  ) : !postedPlayer ? (
     <div class="w-full max-w-xs">
       <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <button
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 my-2 rounded focus:outline-none focus:shadow-outline"
+          type="button"
+          onClick={() => setAddPlayer(false)}
+        >
+          Close
+        </button>
         <div class="mb-4">
           <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
             Name
           </label>
           <input
-            className="text-center shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            className="text-center appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             id="name"
             type="text"
             name="playerName"
@@ -144,15 +156,23 @@ export default function AddPlayer() {
         </div>
 
         <div class="flex items-center justify-center">
-          <button
-            class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 my-2 rounded focus:outline-none focus:shadow-outline"
-            type="button"
-            onClick={submitPlayer}
-          >
-            ADD
-          </button>
+          <AddPlayerButton loading={loading} submitPlayer={submitPlayer} />
         </div>
       </form>
+    </div>
+  ) : (
+    <div class="flex flex-col items-center justify-center">
+      <h2>Player is added to database!</h2>
+      <button
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 my-2 rounded focus:outline-none focus:shadow-outline"
+        type="button"
+        onClick={() => {
+          setPostedPlayer(false);
+          setAddPlayer(true);
+        }}
+      >
+        Add new player
+      </button>
     </div>
   );
 }
