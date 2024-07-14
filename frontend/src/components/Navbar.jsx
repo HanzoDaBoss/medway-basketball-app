@@ -1,10 +1,13 @@
 import React, {useState} from "react";
 import {AiOutlineClose, AiOutlineMenu} from "react-icons/ai";
 import {Link} from "react-router-dom";
+import Modal from "./Admin/Modal";
+import Login from "./Admin/Login";
 
 const TestPage = () => {
   // State to manage the navbar's visibility
   const [nav, setNav] = useState(false);
+  const [open, setOpen] = useState(false);
 
   // Toggle function to handle the navbar's display
   const handleNav = () => {
@@ -47,18 +50,35 @@ const TestPage = () => {
         ))}
 
         <ul
-          onClick={handleNav}
+          onClick={() => setOpen(true)}
           className="p-4 text-[#00df9a] hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300 hover:text-black border-solid border-2 border-[#00df9a]"
         >
           Login
         </ul>
       </ul>
 
-      <div onClick={handleNav} className="block md:hidden">
+      <div onClick={() => setOpen(true)} className="block md:hidden">
         <div className="p-4 text-[#00df9a] hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300 hover:text-black border-solid border-2 border-[#00df9a]">
           Login
         </div>
       </div>
+
+      <Modal open={open} onClose={() => setOpen(false)}>
+        <div className="text-center w-56">
+          <div className="mx-auto my-4 w-48">
+            <Login />
+          </div>
+          <div className="flex gap-4">
+            <button className="btn btn-danger w-full">Delete</button>
+            <button
+              className="btn btn-light w-full"
+              onClick={() => setOpen(false)}
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </Modal>
 
       {/* Mobile Navigation Icon */}
       <div onClick={handleNav} className="block md:hidden">
