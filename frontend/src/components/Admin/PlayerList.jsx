@@ -1,3 +1,5 @@
+import {Link} from "react-router-dom";
+
 export default function PlayerList({loading, playerList, setShowPlayerList}) {
   return loading ? (
     <ul class="flex flex-col items-center rounded bg-white shadow overflow-hidden sm:rounded-md max-w-sm mx-auto mt-16">
@@ -38,12 +40,13 @@ export default function PlayerList({loading, playerList, setShowPlayerList}) {
                     {Math.round(player.overallRating)}
                   </span>
                 </p>
-                <a
-                  href="#"
+                <Link
+                  to={`/admin/${player.id}`}
+                  key={player.id}
                   class="font-medium text-indigo-600 hover:text-indigo-500"
                 >
                   Edit
-                </a>
+                </Link>
               </div>
             </div>
           </li>
