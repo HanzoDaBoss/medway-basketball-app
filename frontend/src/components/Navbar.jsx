@@ -12,7 +12,7 @@ const TestPage = () => {
   };
 
   // Array containing navigation items
-  const navItems = [
+  let navItems = [
     {id: 1, text: "Home", link: ""},
     {id: 2, text: "NBA News", link: "nba-news"},
     {id: 3, text: "Create", link: "create"},
@@ -24,11 +24,13 @@ const TestPage = () => {
       {/* Logo */}
       {/* <h1 className="w-full text-3xl font-bold text-[#00df9a]">REACT.</h1> */}
       <div className="flex flex-shrink-0 items-center ml-5">
-        <img
-          className="h-8 w-auto"
-          src="https://images.vexels.com/media/users/3/127117/isolated/svg/75741f0d611d334c461b2d184ead2c70.svg"
-          alt="Your Company"
-        />
+        <Link to={`/`}>
+          <img
+            className="h-8 w-auto"
+            src="https://images.vexels.com/media/users/3/127117/isolated/svg/75741f0d611d334c461b2d184ead2c70.svg"
+            alt="Your Company"
+          />
+        </Link>
       </div>
 
       {/* Desktop Navigation */}
@@ -43,7 +45,20 @@ const TestPage = () => {
             </li>
           </Link>
         ))}
+
+        <ul
+          onClick={handleNav}
+          className="p-4 text-[#00df9a] hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300 hover:text-black border-solid border-2 border-[#00df9a]"
+        >
+          Login
+        </ul>
       </ul>
+
+      <div onClick={handleNav} className="block md:hidden">
+        <div className="p-4 text-[#00df9a] hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300 hover:text-black border-solid border-2 border-[#00df9a]">
+          Login
+        </div>
+      </div>
 
       {/* Mobile Navigation Icon */}
       <div onClick={handleNav} className="block md:hidden">
