@@ -17,16 +17,21 @@ export default function EditPlayers() {
     });
   }, []);
 
-  return showPlayerList ? (
+  return !showPlayerList ? (
     <button
       class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 my-2 rounded focus:outline-none focus:shadow-outline"
       type="button"
+      onClick={() => setShowPlayerList(true)}
     >
       Edit players
     </button>
   ) : (
     <div className="w-full max-w-xs">
-      <PlayerList loading={loading} playerList={playerList} />
+      <PlayerList
+        loading={loading}
+        playerList={playerList}
+        setShowPlayerList={setShowPlayerList}
+      />
     </div>
   );
 }

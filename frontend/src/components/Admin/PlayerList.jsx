@@ -1,10 +1,24 @@
-export default function PlayerList({loading, playerList}) {
+export default function PlayerList({loading, playerList, setShowPlayerList}) {
   return loading ? (
-    <div class="min-w-100 flex flex-col items-center">
+    <ul class="flex flex-col items-center rounded bg-white shadow overflow-hidden sm:rounded-md max-w-sm mx-auto mt-16">
+      <button
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 my-2 rounded focus:outline-none focus:shadow-outline"
+        type="button"
+        onClick={() => setShowPlayerList(false)}
+      >
+        Close
+      </button>
       <div class="border-gray-300 h-20 w-20 animate-spin rounded-full border-8 border-t-blue-600" />
-    </div>
+    </ul>
   ) : (
-    <ul class="bg-white shadow overflow-hidden sm:rounded-md max-w-sm mx-auto mt-16">
+    <ul class="rounded bg-white shadow overflow-hidden sm:rounded-md max-w-sm mx-auto mt-16">
+      <button
+        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 my-2 rounded focus:outline-none focus:shadow-outline"
+        type="button"
+        onClick={() => setShowPlayerList(false)}
+      >
+        Close
+      </button>
       {playerList.map((player, index) => {
         return (
           <li>
@@ -19,7 +33,10 @@ export default function PlayerList({loading, playerList}) {
               </div>
               <div class="mt-4 flex items-center justify-between">
                 <p class="text-sm font-medium text-gray-500">
-                  Status: <span class="text-green-600">Active</span>
+                  Overall Rating:{" "}
+                  <span class="text-green-600">
+                    {Math.round(player.overallRating)}
+                  </span>
                 </p>
                 <a
                   href="#"
