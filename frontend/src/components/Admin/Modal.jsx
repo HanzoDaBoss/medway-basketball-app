@@ -7,7 +7,7 @@ export default function Modal({open, onClose, children}) {
       onClick={onClose}
       className={`
           fixed inset-0 flex justify-center items-center transition-colors
-          ${open ? "visible bg-black/20" : "invisible"}
+          ${open ? "visible bg-black/20" : "invisible"} z-10
         `}
     >
       {/* modal */}
