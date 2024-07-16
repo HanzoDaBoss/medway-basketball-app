@@ -68,15 +68,6 @@ const TestPage = () => {
           <div className="mx-auto my-4 w-48">
             <Login />
           </div>
-          <div className="flex gap-4">
-            <button className="btn btn-danger w-full">Delete</button>
-            <button
-              className="btn btn-light w-full"
-              onClick={() => setOpen(false)}
-            >
-              Cancel
-            </button>
-          </div>
         </div>
       </Modal>
 
