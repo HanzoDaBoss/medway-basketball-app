@@ -1,7 +1,7 @@
 import {useParams} from "react-router-dom";
 import PlayerForm from "./PlayerForm";
 import {useEffect, useState} from "react";
-import {getPlayerById} from "../../api";
+import {getPlayerById, putPlayerById} from "../../api";
 import {playerConverter} from "../../utils/playerConverter";
 import {gradeConverter} from "../../utils/gradeConverter";
 import {ovrCalculator} from "../../utils/ovrCalculator";
@@ -55,6 +55,7 @@ export default function PlayerPage() {
   const [postFailure, setPostFailure] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     getPlayerById(player_id).then((player) => {
       const playersWithGrades = gradeConverter([player]);
       setPlayerInput({
@@ -86,7 +87,7 @@ export default function PlayerPage() {
     setLoading(true);
     setPostFailure(false);
     const formattedPlayer = playerConverter(playerInput);
-    puttPlayer(formattedPlayer).then((response) => {
+    putPlayerById(formattedPlayer, player_id).then((response) => {
       setLoading(false);
       if ([400, 401, 500].includes(response.status)) {
         setPostFailure(true);
@@ -102,7 +103,7 @@ export default function PlayerPage() {
       <div class="border-gray-300 h-20 w-20 animate-spin rounded-full border-8 border-t-blue-600" />
     </div>
   ) : (
-    <>
+    <div className="w-100 flex flex-col items-center justify-center">
       <PlayerForm
         setAddPlayer={setAddPlayer}
         playerInput={playerInput}
@@ -113,6 +114,6 @@ export default function PlayerPage() {
         submitPlayer={submitPlayer}
         postFailure={postFailure}
       />
-    </>
+    </div>
   );
 }
