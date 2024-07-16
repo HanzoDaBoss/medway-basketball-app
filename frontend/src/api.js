@@ -22,7 +22,7 @@ const getPlayers = (sort_by) => {
 const postPlayer = (player) => {
   return api
     .post(`/players`, player)
-    .then(({data}) => {
+    .then((data) => {
       console.log(data);
       return data;
     })
@@ -35,7 +35,6 @@ const postLogin = (login) => {
   return api
     .post(`/account/login`, login)
     .then((data) => {
-      console.log(data);
       return data;
     })
     .catch((error) => {

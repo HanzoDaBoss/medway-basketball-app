@@ -48,6 +48,7 @@ export default function AddPlayer() {
   const [postedPlayer, setPostedPlayer] = useState(false);
   const [inputOVR, setInputOVR] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [postFailure, setPostFailure] = useState(false);
 
   const handlePlayerInput = (e) => {
     const formattedPlayer = playerConverter(playerInput);
@@ -60,10 +61,30 @@ export default function AddPlayer() {
   const submitPlayer = (e) => {
     e.preventDefault();
     setLoading(true);
+    setPostFailure(false);
     const formattedPlayer = playerConverter(playerInput);
-    postPlayer(formattedPlayer).then((player) => {
+    postPlayer(formattedPlayer).then((response) => {
+      console.log(response);
       setLoading(false);
-      setPostedPlayer(true);
+      if ([400, 401, 500].includes(response.status)) {
+        setPostFailure(true);
+      } else if (response.status === 201) {
+        setPostedPlayer(true);
+        setPostFailure(false);
+        setPlayerInput({
+          playerName: "",
+          insideScoring: "",
+          midRangeShooting: "",
+          longRangeShooting: "",
+          perimeterDefense: "",
+          insideDefense: "",
+          playmaking: "",
+          rebound: "",
+          ballHandling: "",
+          multiplier: 0,
+        });
+        setInputOVR(0);
+      }
     });
   };
 
@@ -155,8 +176,15 @@ export default function AddPlayer() {
           </label>
         </div>
 
-        <div class="flex items-center justify-center">
+        <div class="flex flex-col items-center justify-center">
           <SubmitPlayerButton loading={loading} submitPlayer={submitPlayer} />
+          {postFailure ? (
+            <label class="block uppercase tracking-wide text-red-700 text-xs font-bold mb-2">
+              Player details invalid, please check input fields.
+            </label>
+          ) : (
+            <></>
+          )}
         </div>
       </form>
     </div>
