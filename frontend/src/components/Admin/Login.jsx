@@ -1,7 +1,7 @@
 import {useState} from "react";
 import {postLogin} from "../../api";
 
-export default function Login() {
+export default function Login({setOpen}) {
   const [usernameInput, setUsernameInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -17,13 +17,17 @@ export default function Login() {
   const submitLogin = (e) => {
     e.preventDefault();
     setLoading(true);
-    postLogin({username: usernameInput, password: passwordInput})
-      .then((loginDetails) => {
+    postLogin({username: usernameInput, password: passwordInput}).then(
+      (response) => {
         setLoading(false);
-      })
-      .catch((error) => {
-        setLoginFailure(true);
-      });
+        if ([400, 401, 500].includes(response.status)) {
+          setLoginFailure(true);
+        } else if (response.status === 200) {
+          setLoginFailure(false);
+          setOpen(false);
+        }
+      }
+    );
   };
 
   return (
@@ -75,10 +79,12 @@ export default function Login() {
           )}
         </div>
         <div class="flex flex-col items-center">
-          {loginFailure ? (
+          {!loginFailure ? (
             <></>
           ) : (
-            <h2>Error: Username and/or Password is invalid</h2>
+            <label class="block text-red-700 text-sm font-bold mb-2 mt-3">
+              Error: Username and/or Password is invalid
+            </label>
           )}
         </div>
       </form>

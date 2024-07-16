@@ -66,7 +66,7 @@ const TestPage = () => {
       <Modal open={open} onClose={() => setOpen(false)}>
         <div className="text-center w-56">
           <div className="mx-auto my-4 w-48">
-            <Login />
+            <Login setOpen={setOpen} />
           </div>
         </div>
       </Modal>

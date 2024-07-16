@@ -34,7 +34,7 @@ const postPlayer = (player) => {
 const postLogin = (login) => {
   return api
     .post(`/account/login`, login)
-    .then(({data}) => {
+    .then((data) => {
       console.log(data);
       return data;
     })
