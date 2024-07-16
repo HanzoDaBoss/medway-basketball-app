@@ -31,6 +31,28 @@ const postPlayer = (player) => {
     });
 };
 
+const getPlayerById = (id) => {
+  return api
+    .get(`/players/${id}`)
+    .then(({data}) => {
+      return data;
+    })
+    .catch((error) => {
+      return error.response;
+    });
+};
+
+const deletePlayerById = (id) => {
+  return api
+    .delete(`/players/${id}`)
+    .then(({data}) => {
+      return data;
+    })
+    .catch((error) => {
+      return error.response;
+    });
+};
+
 const postLogin = (login) => {
   return api
     .post(`/account/login`, login)
@@ -42,4 +64,4 @@ const postLogin = (login) => {
     });
 };
 
-export {getPlayers, postPlayer, postLogin};
+export {getPlayers, postPlayer, postLogin, getPlayerById, deletePlayerById};
