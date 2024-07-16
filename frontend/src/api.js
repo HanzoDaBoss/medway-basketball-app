@@ -31,4 +31,16 @@ const postPlayer = (player) => {
     });
 };
 
-export {getPlayers, postPlayer};
+const postLogin = (login) => {
+  return api
+    .post(`/account/login`, login)
+    .then(({data}) => {
+      console.log(data);
+      return data;
+    })
+    .catch((error) => {
+      return error.response;
+    });
+};
+
+export {getPlayers, postPlayer, postLogin};

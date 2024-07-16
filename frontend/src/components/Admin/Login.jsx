@@ -1,9 +1,11 @@
 import {useState} from "react";
+import {postLogin} from "../../api";
 
 export default function Login() {
   const [usernameInput, setUsernameInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [loginFailure, setLoginFailure] = useState(false);
 
   const handleUsernameInput = (e) => {
     setUsernameInput(e.target.value);
@@ -14,6 +16,14 @@ export default function Login() {
 
   const submitLogin = (e) => {
     e.preventDefault();
+    setLoading(true);
+    postLogin({username: usernameInput, password: passwordInput})
+      .then((loginDetails) => {
+        setLoading(false);
+      })
+      .catch((error) => {
+        setLoginFailure(true);
+      });
   };
 
   return (
@@ -52,15 +62,23 @@ export default function Login() {
           />
         </div>
         <div class="flex flex-col items-center">
-          {!loading ? (
+          {loading ? (
             <div class="border-gray-300 h-20 w-20 animate-spin rounded-full border-8 border-t-blue-600" />
           ) : (
             <button
               class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="button"
+              onClick={submitLogin}
             >
               Sign In
             </button>
+          )}
+        </div>
+        <div class="flex flex-col items-center">
+          {loginFailure ? (
+            <></>
+          ) : (
+            <h2>Error: Username and/or Password is invalid</h2>
           )}
         </div>
       </form>
