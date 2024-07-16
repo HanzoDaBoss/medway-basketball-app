@@ -1,13 +1,16 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import {AiOutlineClose, AiOutlineMenu} from "react-icons/ai";
 import {Link} from "react-router-dom";
 import Modal from "./Admin/Modal";
 import Login from "./Admin/Login";
+import {UserContext} from "./contexts/User";
 
 const TestPage = () => {
   // State to manage the navbar's visibility
   const [nav, setNav] = useState(false);
   const [open, setOpen] = useState(false);
+
+  const {user} = useContext(UserContext);
 
   // Toggle function to handle the navbar's display
   const handleNav = () => {
@@ -15,12 +18,18 @@ const TestPage = () => {
   };
 
   // Array containing navigation items
-  let navItems = [
-    {id: 1, text: "Home", link: ""},
-    {id: 2, text: "NBA News", link: "nba-news"},
-    {id: 3, text: "Create", link: "create"},
-    {id: 4, text: "Admin", link: "admin"},
-  ];
+  const navItems = !user
+    ? [
+        {id: 1, text: "Home", link: ""},
+        {id: 2, text: "NBA News", link: "nba-news"},
+        {id: 3, text: "Create", link: "create"},
+      ]
+    : [
+        {id: 1, text: "Home", link: ""},
+        {id: 2, text: "NBA News", link: "nba-news"},
+        {id: 3, text: "Create", link: "create"},
+        {id: 4, text: "Admin", link: "admin"},
+      ];
 
   return (
     <div className="bg-black flex justify-between items-center h-24 w-100 mx-auto px-4 text-white">
@@ -49,19 +58,27 @@ const TestPage = () => {
           </Link>
         ))}
 
-        <ul
-          onClick={() => setOpen(true)}
-          className="p-4 text-[#00df9a] hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300 hover:text-black border-solid border-2 border-[#00df9a]"
-        >
-          Login
-        </ul>
+        {!user ? (
+          <ul
+            onClick={() => setOpen(true)}
+            className="p-4 text-[#00df9a] hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300 hover:text-black border-solid border-2 border-[#00df9a]"
+          >
+            Login
+          </ul>
+        ) : (
+          <></>
+        )}
       </ul>
 
-      <div onClick={() => setOpen(true)} className="block md:hidden">
-        <div className="p-4 text-[#00df9a] hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300 hover:text-black border-solid border-2 border-[#00df9a]">
-          Login
+      {!user ? (
+        <div onClick={() => setOpen(true)} className="block md:hidden">
+          <div className="p-4 text-[#00df9a] hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300 hover:text-black border-solid border-2 border-[#00df9a]">
+            Login
+          </div>
         </div>
-      </div>
+      ) : (
+        <></>
+      )}
 
       <Modal open={open} onClose={() => setOpen(false)}>
         <div className="text-center w-56">

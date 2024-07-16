@@ -1,11 +1,14 @@
-import {useState} from "react";
+import {useContext, useState} from "react";
 import {postLogin} from "../../api";
+import {UserContext} from "../contexts/User";
 
 export default function Login({setOpen}) {
   const [usernameInput, setUsernameInput] = useState("");
   const [passwordInput, setPasswordInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [loginFailure, setLoginFailure] = useState(false);
+
+  const {setUser} = useContext(UserContext);
 
   const handleUsernameInput = (e) => {
     setUsernameInput(e.target.value);
@@ -23,6 +26,7 @@ export default function Login({setOpen}) {
         if ([400, 401, 500].includes(response.status)) {
           setLoginFailure(true);
         } else if (response.status === 200) {
+          setUser(response.data);
           setLoginFailure(false);
           setOpen(false);
         }
