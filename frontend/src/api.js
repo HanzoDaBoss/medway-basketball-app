@@ -42,6 +42,18 @@ const getPlayerById = (id) => {
     });
 };
 
+const putPlayerById = (player, id) => {
+  return api
+    .put(`/players/${id}`, player)
+    .then((data) => {
+      console.log(data);
+      return data;
+    })
+    .catch((error) => {
+      return error.response;
+    });
+};
+
 const deletePlayerById = (id) => {
   return api
     .delete(`/players/${id}`)
@@ -64,4 +76,11 @@ const postLogin = (login) => {
     });
 };
 
-export {getPlayers, postPlayer, postLogin, getPlayerById, deletePlayerById};
+export {
+  getPlayers,
+  postPlayer,
+  postLogin,
+  getPlayerById,
+  putPlayerById,
+  deletePlayerById,
+};
