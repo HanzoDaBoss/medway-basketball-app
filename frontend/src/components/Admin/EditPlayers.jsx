@@ -30,6 +30,7 @@ export default function EditPlayers() {
       <PlayerList
         loading={loading}
         playerList={playerList}
+        setPlayerList={setPlayerList}
         setShowPlayerList={setShowPlayerList}
       />
     </div>

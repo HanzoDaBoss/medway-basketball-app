@@ -46,7 +46,6 @@ const putPlayerById = (player, id) => {
   return api
     .put(`/players/${id}`, player)
     .then((data) => {
-      console.log(data);
       return data;
     })
     .catch((error) => {

@@ -48,7 +48,7 @@ const TestPage = () => {
       {/* Desktop Navigation */}
       <ul className="hidden md:flex">
         {navItems.map((item) => (
-          <Link to={`/${item.link}`}>
+          <Link key={item.id} to={`/${item.link}`}>
             <li
               key={item.id}
               className="p-4 hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300 hover:text-black"
