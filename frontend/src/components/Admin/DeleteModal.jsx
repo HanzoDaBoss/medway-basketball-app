@@ -1,14 +1,14 @@
 import {deletePlayerById} from "../../api";
 import Modal from "./Modal";
 
-export default function DeleteModal({open, setOpen, player, setPlayerList}) {
+export default function DeleteModal({open, setOpen, player_id}) {
   const deletePlayer = () => {
-    console.log(player);
-    setPlayerList((currentPlayerList) => {
-      return currentPlayerList.filter((player) => {
-        return player.id !== player_id;
-      });
-    });
+    console.log(player_id);
+    // setPlayerList((currentPlayerList) => {
+    //   return currentPlayerList.filter((player) => {
+    //     return player.id !== player_id;
+    //   });
+    // });
 
     deletePlayerById(player_id).catch((error) => {
       alert("Apologies - player was not deleted");
@@ -38,7 +38,7 @@ export default function DeleteModal({open, setOpen, player, setPlayerList}) {
             className="btn text-gray-800 btn-light w-full"
             onClick={() => {
               setOpen(false);
-              console.log(player);
+              console.log(player_id);
             }}
           >
             Cancel

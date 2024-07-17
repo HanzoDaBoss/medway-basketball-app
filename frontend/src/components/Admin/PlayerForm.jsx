@@ -9,6 +9,7 @@ export default function ({
   loading,
   submitPlayer,
   postFailure,
+  children,
 }) {
   return (
     <div class="w-full max-w-xs">
@@ -89,7 +90,10 @@ export default function ({
         </div>
 
         <div class="flex flex-col items-center justify-center">
-          <SubmitPlayerButton loading={loading} submitPlayer={submitPlayer} />
+          <div class="flex flex-row items-center justify-center">
+            <SubmitPlayerButton loading={loading} submitPlayer={submitPlayer} />
+            {children}
+          </div>
           {postFailure ? (
             <label class="block uppercase tracking-wide text-red-700 text-xs font-bold mb-2">
               Player details invalid, please check input fields.

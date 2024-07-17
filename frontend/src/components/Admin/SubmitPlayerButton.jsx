@@ -7,7 +7,7 @@ export default function SubmitPlayerButton({loading, submitPlayer}) {
       type="button"
       onClick={submitPlayer}
     >
-      ADD
+      SUBMIT
     </button>
   );
 }

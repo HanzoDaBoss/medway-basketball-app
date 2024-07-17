@@ -5,6 +5,7 @@ import {getPlayerById, putPlayerById} from "../../api";
 import {playerConverter} from "../../utils/playerConverter";
 import {gradeConverter} from "../../utils/gradeConverter";
 import {ovrCalculator} from "../../utils/ovrCalculator";
+import DeleteModal from "./DeleteModal";
 
 export default function PlayerPage() {
   const {player_id} = useParams();
@@ -53,6 +54,7 @@ export default function PlayerPage() {
   const [inputOVR, setInputOVR] = useState(0);
   const [loading, setLoading] = useState(false);
   const [postFailure, setPostFailure] = useState(false);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -113,7 +115,19 @@ export default function PlayerPage() {
         loading={loading}
         submitPlayer={submitPlayer}
         postFailure={postFailure}
-      />
+      >
+        <button
+          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 my-2 rounded focus:outline-none focus:shadow-outline"
+          onClick={(e) => {
+            e.preventDefault();
+            setOpen(true);
+            console.log(player_id);
+          }}
+        >
+          Delete
+        </button>
+      </PlayerForm>
+      <DeleteModal open={open} setOpen={setOpen} player_id={player_id} />
     </div>
   );
 }
