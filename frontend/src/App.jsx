@@ -11,12 +11,9 @@ function App() {
     <>
       <Navbar />
       <Routes>
-        <Route path="/" element={<Leaderboard />}></Route>
-        <Route path="/admin" element={<AdminPage />}></Route>
-        <Route
-          path="/admin/players/:player_id"
-          element={<PlayerPage />}
-        ></Route>
+        <Route path="/" element={<Leaderboard />} />
+        <Route path="/admin" element={<AdminPage />} />
+        <Route path="/admin/players/:player_id" element={<PlayerPage />} />
       </Routes>
     </>
   );
