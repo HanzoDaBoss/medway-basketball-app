@@ -56,21 +56,6 @@ export default function PlayerList({
                 >
                   Edit
                 </Link>
-                <button
-                  onClick={() => {
-                    setOpen(true);
-                    console.log(player);
-                  }}
-                  class="font-medium text-red-600 hover:text-red-400"
-                >
-                  Delete
-                </button>
-                <DeleteModal
-                  open={open}
-                  setOpen={setOpen}
-                  player={player}
-                  setPlayerList={setPlayerList}
-                />
               </div>
             </div>
           </li>

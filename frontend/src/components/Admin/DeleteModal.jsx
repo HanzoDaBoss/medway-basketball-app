@@ -11,11 +11,11 @@ export default function DeleteModal({
 }) {
   const deletePlayer = () => {
     console.log(player_id);
-    setPlayerList((currentPlayerList) => {
-      return currentPlayerList.filter((player) => {
+    setPlayerList(
+      playerList.filter((player) => {
         return player.id !== player_id;
-      });
-    });
+      })
+    );
     console.log(playerList);
 
     deletePlayerById(player_id).catch((error) => {
@@ -36,7 +36,7 @@ export default function DeleteModal({
           <button
             className="btn text-red-500 btn-danger w-full"
             onClick={() => {
-              deletePlayer(player_id);
+              deletePlayer();
               setOpen(false);
             }}
           >
