@@ -3,9 +3,8 @@ import {getPlayers} from "../../api";
 import {gradeConverter} from "../../utils/gradeConverter";
 import PlayerList from "./PlayerList";
 
-export default function EditPlayers() {
+export default function EditPlayers({playerList, setPlayerList}) {
   const [showPlayerList, setShowPlayerList] = useState(false);
-  const [playerList, setPlayerList] = useState([]);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {

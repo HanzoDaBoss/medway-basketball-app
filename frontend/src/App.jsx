@@ -1,19 +1,31 @@
-import {useState} from "react";
 import "./App.css";
 import {Route, Routes} from "react-router-dom";
 import Leaderboard from "./components/Leaderboard";
 import Navbar from "./components/Navbar";
 import AdminPage from "./components/Admin/AdminPage";
 import PlayerPage from "./components/Admin/PlayerPage";
+import {useState} from "react";
 
 function App() {
+  const [playerList, setPlayerList] = useState([]);
+
   return (
     <>
       <Navbar />
       <Routes>
         <Route path="/" element={<Leaderboard />} />
-        <Route path="/admin" element={<AdminPage />} />
-        <Route path="/admin/players/:player_id" element={<PlayerPage />} />
+        <Route
+          path="/admin"
+          element={
+            <AdminPage playerList={playerList} setPlayerList={setPlayerList} />
+          }
+        />
+        <Route
+          path="/admin/players/:player_id"
+          element={
+            <PlayerPage playerList={playerList} setPlayerList={setPlayerList} />
+          }
+        />
       </Routes>
     </>
   );

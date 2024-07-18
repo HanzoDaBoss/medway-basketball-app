@@ -7,7 +7,7 @@ import {gradeConverter} from "../../utils/gradeConverter";
 import {ovrCalculator} from "../../utils/ovrCalculator";
 import DeleteModal from "./DeleteModal";
 
-export default function PlayerPage() {
+export default function PlayerPage({playerList, setPlayerList}) {
   const {player_id} = useParams();
 
   const attributes = [
@@ -127,7 +127,13 @@ export default function PlayerPage() {
           Delete
         </button>
       </PlayerForm>
-      <DeleteModal open={open} setOpen={setOpen} player_id={player_id} />
+      <DeleteModal
+        open={open}
+        setOpen={setOpen}
+        player_id={player_id}
+        playerList={playerList}
+        setPlayerList={setPlayerList}
+      />
     </div>
   );
 }

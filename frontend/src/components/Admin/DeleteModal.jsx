@@ -2,7 +2,13 @@ import {Link} from "react-router-dom";
 import {deletePlayerById} from "../../api";
 import Modal from "./Modal";
 
-export default function DeleteModal({open, setOpen, player_id}) {
+export default function DeleteModal({
+  open,
+  setOpen,
+  player_id,
+  playerList,
+  setPlayerList,
+}) {
   const deletePlayer = () => {
     console.log(player_id);
     setPlayerList((currentPlayerList) => {
@@ -10,6 +16,7 @@ export default function DeleteModal({open, setOpen, player_id}) {
         return player.id !== player_id;
       });
     });
+    console.log(playerList);
 
     deletePlayerById(player_id).catch((error) => {
       alert("Apologies - player was not deleted");
