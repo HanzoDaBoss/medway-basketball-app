@@ -13,7 +13,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Leaderboard />}></Route>
         <Route path="/admin" element={<AdminPage />}></Route>
-        <Route path="/admin/:player_id" element={<PlayerPage />}></Route>
+        <Route
+          path="/admin/players/:player_id"
+          element={<PlayerPage />}
+        ></Route>
       </Routes>
     </>
   );

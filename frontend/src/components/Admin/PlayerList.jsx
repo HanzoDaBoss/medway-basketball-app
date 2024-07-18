@@ -50,7 +50,7 @@ export default function PlayerList({
                   </span>
                 </p>
                 <Link
-                  to={`/admin/${player.id}`}
+                  to={`/admin/players/${player.id}`}
                   key={player.id}
                   class="font-medium text-indigo-600 hover:text-indigo-400"
                 >
