@@ -1,4 +1,4 @@
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import PlayerForm from "./PlayerForm";
 import {useEffect, useState} from "react";
 import {getPlayerById, putPlayerById} from "../../api";
@@ -9,6 +9,8 @@ import DeleteModal from "./DeleteModal";
 
 export default function PlayerPage({playerList, setPlayerList}) {
   const {player_id} = useParams();
+
+  const navigate = useNavigate();
 
   const attributes = [
     {id: 1, abbrieviation: "IS", text: "Inside Scoring", key: "insideScoring"},
@@ -55,6 +57,7 @@ export default function PlayerPage({playerList, setPlayerList}) {
   const [loading, setLoading] = useState(false);
   const [postFailure, setPostFailure] = useState(false);
   const [open, setOpen] = useState(false);
+  const [deletedPlayer, setDeletedPlayer] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -106,33 +109,49 @@ export default function PlayerPage({playerList, setPlayerList}) {
     </div>
   ) : (
     <div className="w-100 flex flex-col items-center justify-center">
-      <PlayerForm
-        setAddPlayer={setAddPlayer}
-        playerInput={playerInput}
-        handlePlayerInput={handlePlayerInput}
-        attributes={attributes}
-        inputOVR={inputOVR}
-        loading={loading}
-        submitPlayer={submitPlayer}
-        postFailure={postFailure}
-      >
-        <button
-          className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 my-2 rounded focus:outline-none focus:shadow-outline"
-          onClick={(e) => {
-            e.preventDefault();
-            setOpen(true);
-            console.log(player_id);
-          }}
+      {deletedPlayer ? (
+        <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2">
+            Player is deleted!
+          </label>
+          <button
+            class="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 my-2 rounded focus:outline-none focus:shadow-outline"
+            type="button"
+            onClick={() => navigate("/admin")}
+          >
+            Back to Admin
+          </button>
+        </form>
+      ) : (
+        <PlayerForm
+          setAddPlayer={setAddPlayer}
+          playerInput={playerInput}
+          handlePlayerInput={handlePlayerInput}
+          attributes={attributes}
+          inputOVR={inputOVR}
+          loading={loading}
+          submitPlayer={submitPlayer}
+          postFailure={postFailure}
         >
-          Delete
-        </button>
-      </PlayerForm>
+          <button
+            className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 my-2 rounded focus:outline-none focus:shadow-outline"
+            onClick={(e) => {
+              e.preventDefault();
+              setOpen(true);
+              console.log(player_id);
+            }}
+          >
+            Delete
+          </button>
+        </PlayerForm>
+      )}
       <DeleteModal
         open={open}
         setOpen={setOpen}
         player_id={player_id}
         playerList={playerList}
         setPlayerList={setPlayerList}
+        setDeletedPlayer={setDeletedPlayer}
       />
     </div>
   );

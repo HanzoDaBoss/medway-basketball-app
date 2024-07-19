@@ -1,8 +1,5 @@
 import {Link} from "react-router-dom";
-import Modal from "./Modal";
 import {useState} from "react";
-import {deletePlayerById} from "../../api";
-import DeleteModal from "./DeleteModal";
 
 export default function PlayerList({
   loading,

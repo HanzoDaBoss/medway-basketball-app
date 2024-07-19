@@ -1,4 +1,3 @@
-import {Link} from "react-router-dom";
 import {deletePlayerById} from "../../api";
 import Modal from "./Modal";
 
@@ -8,19 +7,20 @@ export default function DeleteModal({
   player_id,
   playerList,
   setPlayerList,
+  setDeletedPlayer,
 }) {
   const deletePlayer = () => {
-    console.log(player_id);
-    setPlayerList(
-      playerList.filter((player) => {
-        return player.id !== player_id;
+    deletePlayerById(player_id)
+      .then(() => {
+        setPlayerList((currentPlayerList) => {
+          return currentPlayerList.filter((player) => player.id !== player_id);
+        });
+        console.log(playerList);
       })
-    );
-    console.log(playerList);
-
-    deletePlayerById(player_id).catch((error) => {
-      alert("Apologies - player was not deleted");
-    });
+      .catch((error) => {
+        alert("Apologies - player was not deleted");
+      });
+    setDeletedPlayer(true);
   };
 
   return (
@@ -41,7 +41,7 @@ export default function DeleteModal({
             }}
           >
             {" "}
-            <Link to="/admin">Delete</Link>
+            Delete
           </button>
 
           <button
