@@ -32,7 +32,7 @@ const TestPage = () => {
       ];
 
   return (
-    <div className="bg-black flex justify-between items-center h-24 w-100 mx-auto px-4 text-white">
+    <div className="bg-white bg-opacity-30 flex justify-between items-center h-24 w-100 mx-auto px-4 text-black">
       {/* Logo */}
       {/* <h1 className="w-full text-3xl font-bold text-[#00df9a]">REACT.</h1> */}
       <div className="flex flex-shrink-0 items-center ml-5">
@@ -51,7 +51,7 @@ const TestPage = () => {
           <Link key={item.id} to={`/${item.link}`}>
             <li
               key={item.id}
-              className="p-4 hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300 hover:text-black"
+              className="p-4 hover:bg-[#8EC5FC] rounded-xl m-2 cursor-pointer duration-300 hover:text-black"
             >
               {item.text}
             </li>
@@ -61,7 +61,7 @@ const TestPage = () => {
         {!user ? (
           <ul
             onClick={() => setOpen(true)}
-            className="p-4 text-[#00df9a] hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300 hover:text-black border-solid border-2 border-[#00df9a]"
+            className="p-4 text-[#8EC5FC] hover:bg-[#8EC5FC] rounded-xl m-2 cursor-pointer duration-300 hover:text-black border-solid border-2 border-[#8EC5FC]"
           >
             Login
           </ul>
@@ -72,7 +72,7 @@ const TestPage = () => {
 
       {!user ? (
         <div onClick={() => setOpen(true)} className="block md:hidden">
-          <div className="p-4 text-[#00df9a] hover:bg-[#00df9a] rounded-xl m-2 cursor-pointer duration-300 hover:text-black border-solid border-2 border-[#00df9a]">
+          <div className="p-4 text-[#8EC5FC] hover:bg-[#8EC5FC] rounded-xl m-2 cursor-pointer duration-300 hover:text-black border-solid border-2 border-[#8EC5FC]">
             Login
           </div>
         </div>
@@ -97,7 +97,7 @@ const TestPage = () => {
       <ul
         className={
           nav
-            ? "fixed md:hidden left-0 top-0 w-[60%] h-full border-r border-r-gray-900 bg-[#000300] ease-in-out duration-500 z-10"
+            ? "fixed md:hidden left-0 top-0 w-[60%] h-full border-r border-r-white-900 bg-[#8EC5FC] bg-gradient-to-r from-[#8EC5FC] to-[#E0C3FC] ease-in-out duration-500 z-10"
             : "ease-in-out w-[60%] duration-500 fixed top-0 bottom-0 left-[-100%]"
         }
       >
@@ -116,7 +116,7 @@ const TestPage = () => {
           <Link to={`/${item.link}`}>
             <li
               key={item.id}
-              className="p-4 border-b rounded-xl hover:bg-[#00df9a] duration-300 hover:text-black cursor-pointer border-gray-600"
+              className="p-4 border-b rounded-xl hover:bg-[#8EC5FC] duration-300 hover:text-black cursor-pointer border-white-600"
             >
               {item.text}
             </li>
