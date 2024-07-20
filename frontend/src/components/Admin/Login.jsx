@@ -45,7 +45,7 @@ export default function Login({setOpen}) {
             Username/Email
           </label>
           <input
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+            class="appearance-none border rounded w-full py-2 px-3 bg-gray-200 text-gray-700 leading-tight focus:outline-none focus:bg-white"
             id="username"
             type="text"
             placeholder="Username/Email"
@@ -61,7 +61,7 @@ export default function Login({setOpen}) {
             Password
           </label>
           <input
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+            class="appearance-none border rounded w-full py-2 px-3 bg-gray-200 text-gray-700 mb-3 leading-tight focus:outline-none focus:bg-white"
             id="password"
             type="password"
             placeholder="******************"
