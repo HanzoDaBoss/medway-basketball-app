@@ -6,6 +6,7 @@ import AdminPage from "./components/Admin/AdminPage";
 import PlayerPage from "./components/Admin/PlayerPage";
 import {useState} from "react";
 import NbaNews from "./components/NbaNews";
+import CreateGame from "./components/CreateGame";
 
 function App() {
   const [playerList, setPlayerList] = useState([]);
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Leaderboard />} />
         <Route path="/nba-news" element={<NbaNews />} />
+        <Route path="/create" element={<CreateGame />} />
         <Route
           path="/admin"
           element={
