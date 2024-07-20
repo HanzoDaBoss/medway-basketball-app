@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import AdminPage from "./components/Admin/AdminPage";
 import PlayerPage from "./components/Admin/PlayerPage";
 import {useState} from "react";
+import NbaNews from "./components/NbaNews";
 
 function App() {
   const [playerList, setPlayerList] = useState([]);
@@ -14,6 +15,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Leaderboard />} />
+        <Route path="/nba-news" element={<NbaNews />} />
         <Route
           path="/admin"
           element={
