@@ -1,11 +1,12 @@
 import {useNavigate, useParams} from "react-router-dom";
 import PlayerForm from "./PlayerForm";
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import {getPlayerById, putPlayerById} from "../../api";
 import {playerConverter} from "../../utils/playerConverter";
 import {gradeConverter} from "../../utils/gradeConverter";
 import {ovrCalculator} from "../../utils/ovrCalculator";
 import DeleteModal from "./DeleteModal";
+import {UserContext} from "../contexts/User";
 
 export default function PlayerPage({playerList, setPlayerList}) {
   const {player_id} = useParams();
@@ -104,7 +105,7 @@ export default function PlayerPage({playerList, setPlayerList}) {
     });
   };
 
-  if (user) return <h1>You do not have admin access!</h1>;
+  if (!user) return <h1>You do not have admin access!</h1>;
 
   return loading ? (
     <div class="min-w-100 flex flex-col items-center">
