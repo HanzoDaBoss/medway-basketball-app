@@ -9,6 +9,7 @@ import DeleteModal from "./DeleteModal";
 
 export default function PlayerPage({playerList, setPlayerList}) {
   const {player_id} = useParams();
+  const {user} = useContext(UserContext);
 
   const navigate = useNavigate();
 
