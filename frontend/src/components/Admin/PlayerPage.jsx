@@ -104,6 +104,8 @@ export default function PlayerPage({playerList, setPlayerList}) {
     });
   };
 
+  if (user) return <h1>You do not have admin access!</h1>;
+
   return loading ? (
     <div class="min-w-100 flex flex-col items-center">
       <div class="border-gray-300 h-20 w-20 animate-spin rounded-full border-8 border-t-blue-600" />
