@@ -10,12 +10,12 @@ export default function Leaderboard() {
 
   useEffect(() => {
     setLoading(true);
-    getPlayers("overallRating").then((players) => {
+    getPlayers(sortBy).then((players) => {
       const playersWithGrades = gradeConverter(players);
       setPlayerList(playersWithGrades);
       setLoading(false);
     });
-  }, []);
+  }, [sortBy]);
 
   return loading ? (
     <div class="min-w-100 flex flex-col items-center">
@@ -25,7 +25,7 @@ export default function Leaderboard() {
   ) : (
     <div className="flex flex-col items-center">
       <header>Leaderboard</header>
-      <Dropdown />
+      <Dropdown setSortBy={setSortBy} />
       <div class="inline-block min-w-100 py-2 sm:px-6 lg:px-14">
         <table className="min-w-full border border-neutral-200 text-center text-sm font-light text-surface dark:border-white/10 dark:text-white shadow-xl">
           <thead className="border-b border-neutral-200 font-medium dark:border-white/10">

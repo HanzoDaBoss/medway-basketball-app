@@ -1,7 +1,33 @@
 import {Menu, MenuButton, MenuItem, MenuItems} from "@headlessui/react";
 import {ChevronDownIcon} from "@heroicons/react/20/solid";
 
-export default function Dropdown() {
+export default function Dropdown({setSortBy}) {
+  const attributes = [
+    {id: 1, abbrieviation: "OVR", text: "Overall Rating", key: "overallRating"},
+    {id: 2, abbrieviation: "IS", text: "Inside Scoring", key: "insideScoring"},
+    {
+      id: 3,
+      abbrieviation: "MRS",
+      text: "Mid Range Shooting",
+      key: "midRangeShooting",
+    },
+    {
+      id: 4,
+      abbrieviation: "LRS",
+      text: "Long Range Shooting",
+      key: "longRangeShooting",
+    },
+    {
+      id: 5,
+      abbrieviation: "PD",
+      text: "Perimeter Defense",
+      key: "perimeterDefense",
+    },
+    {id: 6, abbrieviation: "ID", text: "Inside Defense", key: "insideDefense"},
+    {id: 7, abbrieviation: "PM", text: "Playmaking", key: "playmaking"},
+    {id: 8, abbrieviation: "RB", text: "Rebound", key: "rebound"},
+    {id: 9, abbrieviation: "BH", text: "Ball Handling", key: "ballHandling"},
+  ];
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
@@ -19,14 +45,20 @@ export default function Dropdown() {
         className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
       >
         <div className="py-1">
-          <MenuItem>
-            <a
-              href="#"
-              className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900"
-            >
-              Account settings
-            </a>
-          </MenuItem>
+          {attributes.map((attribute) => {
+            return (
+              <MenuItem>
+                <a
+                  onClick={() => {
+                    setSortBy(attribute.key);
+                  }}
+                  className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900"
+                >
+                  {attribute.text}
+                </a>
+              </MenuItem>
+            );
+          })}
         </div>
       </MenuItems>
     </Menu>
