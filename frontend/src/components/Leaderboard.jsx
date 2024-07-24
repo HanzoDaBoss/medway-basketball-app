@@ -6,6 +6,7 @@ import Dropdown from "./Dropdown";
 export default function Leaderboard() {
   const [playerList, setPlayerList] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [sortBy, setSortBy] = useState("overallRating");
 
   useEffect(() => {
     setLoading(true);
