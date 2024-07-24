@@ -22,7 +22,7 @@ export default function Leaderboard() {
       <div class="border-gray-300 h-20 w-20 animate-spin rounded-full border-8 border-t-blue-600" />
     </div>
   ) : (
-    <>
+    <div className="flex flex-col items-center">
       <header>Leaderboard</header>
       <Dropdown />
       <div class="inline-block min-w-100 py-2 sm:px-6 lg:px-14">
@@ -140,6 +140,6 @@ export default function Leaderboard() {
           })}
         </table>
       </div>
-    </>
+    </div>
   );
 }
