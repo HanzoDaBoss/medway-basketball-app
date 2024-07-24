@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import {getPlayers} from "../api";
 import {gradeConverter} from "../utils/gradeConverter";
+import Dropdown from "./Dropdown";
 
 export default function Leaderboard() {
   const [playerList, setPlayerList] = useState([]);
@@ -23,6 +24,7 @@ export default function Leaderboard() {
   ) : (
     <>
       <header>Leaderboard</header>
+      <Dropdown />
       <div class="inline-block min-w-100 py-2 sm:px-6 lg:px-14">
         <table className="min-w-full border border-neutral-200 text-center text-sm font-light text-surface dark:border-white/10 dark:text-white shadow-xl">
           <thead className="border-b border-neutral-200 font-medium dark:border-white/10">
