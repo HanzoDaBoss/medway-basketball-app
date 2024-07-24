@@ -1,8 +1,9 @@
 import {Menu, MenuButton, MenuItem, MenuItems} from "@headlessui/react";
 import {ChevronDownIcon} from "@heroicons/react/20/solid";
 
-export default function Dropdown({setSortBy}) {
+export default function Dropdown({sortBy, setSortBy}) {
   const attributes = [
+    {id: 0, abbrieviation: "SB", text: "Sort By", key: "overallRating"},
     {id: 1, abbrieviation: "OVR", text: "Overall Rating", key: "overallRating"},
     {id: 2, abbrieviation: "IS", text: "Inside Scoring", key: "insideScoring"},
     {
@@ -32,7 +33,7 @@ export default function Dropdown({setSortBy}) {
     <Menu as="div" className="relative inline-block text-left">
       <div>
         <MenuButton className="inline-flex w-full justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">
-          Sort By
+          {sortBy.text}
           <ChevronDownIcon
             aria-hidden="true"
             className="-mr-1 h-5 w-5 text-gray-400"
@@ -50,7 +51,7 @@ export default function Dropdown({setSortBy}) {
               <MenuItem>
                 <a
                   onClick={() => {
-                    setSortBy(attribute.key);
+                    setSortBy(attribute);
                   }}
                   className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100 data-[focus]:text-gray-900"
                 >

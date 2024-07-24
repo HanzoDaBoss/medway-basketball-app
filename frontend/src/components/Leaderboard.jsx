@@ -6,11 +6,11 @@ import Dropdown from "./Dropdown";
 export default function Leaderboard() {
   const [playerList, setPlayerList] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [sortBy, setSortBy] = useState("overallRating");
+  const [sortBy, setSortBy] = useState({text: "Sort By", key: "overallRating"});
 
   useEffect(() => {
     setLoading(true);
-    getPlayers(sortBy).then((players) => {
+    getPlayers(sortBy.key).then((players) => {
       const playersWithGrades = gradeConverter(players);
       setPlayerList(playersWithGrades);
       setLoading(false);
@@ -25,7 +25,7 @@ export default function Leaderboard() {
   ) : (
     <div className="flex flex-col items-center">
       <header>Leaderboard</header>
-      <Dropdown setSortBy={setSortBy} />
+      <Dropdown sortBy={sortBy} setSortBy={setSortBy} />
       <div class="inline-block min-w-100 py-2 sm:px-6 lg:px-14">
         <table className="min-w-full border border-neutral-200 text-center text-sm font-light text-surface dark:border-white/10 dark:text-white shadow-xl">
           <thead className="border-b border-neutral-200 font-medium dark:border-white/10">
