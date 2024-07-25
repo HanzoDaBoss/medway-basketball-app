@@ -64,6 +64,7 @@ export default function AddPlayer() {
     setLoading(true);
     setPostFailure(false);
     const formattedPlayer = playerConverter(playerInput);
+    console.log(formattedPlayer);
     postPlayer(formattedPlayer).then((response) => {
       setLoading(false);
       if ([400, 401, 500].includes(response.status)) {
