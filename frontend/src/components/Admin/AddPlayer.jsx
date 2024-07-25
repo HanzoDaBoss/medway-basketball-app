@@ -65,35 +65,34 @@ export default function AddPlayer() {
     setPostFailure(false);
     const formattedPlayer = playerConverter(playerInput);
     console.log(formattedPlayer);
-    Object.values(formattedPlayer).forEach((value) => {
-      if (!value) {
-        setLoading(true);
-        setPostFailure(true);
-        return false;
-      }
-    });
-    postPlayer(formattedPlayer).then((response) => {
+
+    if (Object.values(formattedPlayer).includes(undefined || 0)) {
       setLoading(false);
-      if ([400, 401, 500].includes(response.status)) {
-        setPostFailure(true);
-      } else if (response.status === 201) {
-        setPostedPlayer(true);
-        setPostFailure(false);
-        setPlayerInput({
-          playerName: "",
-          insideScoring: "",
-          midRangeShooting: "",
-          longRangeShooting: "",
-          perimeterDefense: "",
-          insideDefense: "",
-          playmaking: "",
-          rebound: "",
-          ballHandling: "",
-          multiplier: 0,
-        });
-        setInputOVR(0);
-      }
-    });
+      setPostFailure(true);
+    } else {
+      postPlayer(formattedPlayer).then((response) => {
+        setLoading(false);
+        if ([400, 401, 500].includes(response.status)) {
+          setPostFailure(true);
+        } else if (response.status === 201) {
+          setPostedPlayer(true);
+          setPostFailure(false);
+          setPlayerInput({
+            playerName: "",
+            insideScoring: "",
+            midRangeShooting: "",
+            longRangeShooting: "",
+            perimeterDefense: "",
+            insideDefense: "",
+            playmaking: "",
+            rebound: "",
+            ballHandling: "",
+            multiplier: 0,
+          });
+          setInputOVR(0);
+        }
+      });
+    }
   };
 
   return !addPlayer ? (
