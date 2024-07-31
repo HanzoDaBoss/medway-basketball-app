@@ -1,6 +1,6 @@
-# Northcoders News API
+# Medway Basketball API
 
-## A fully functional REST API that provides data on Northcoders News!
+## An ASP.NET Core RESTful Web API that provides the latest basketball player data!
 
 This project is designed to outline building and accesssing a REST API, which provides a back-end service for a front-end architecture to utilise.
 
