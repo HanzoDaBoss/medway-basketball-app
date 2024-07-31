@@ -2,65 +2,53 @@
 
 ## A RESTful API that provides the latest basketball player data!
 
-This project is designed to outline building and accesssing a ASP.NET Core Web API, which provides a back-end service for a front-end architecture to utilise.
+This project is designed to outline building and accesssing a ASP.NET Core Web API, which provides a back-end service for viewing and managing player data in a basketball league. The project was created using C#, MS SQL Server 2022 and Entity Framework Core.
 
-Link to the live site: https://medway-basketball.netlify.app
+Link to the front-end site: https://medway-basketball.netlify.app
 
-All endpoints are handled in `app.js`.
+## Features
 
-A comprehensive list of these endpoints are contained in `endpoints.json`.
+- CRUD operations for player data.
+- Administator registration and login.
 
-`.husky` is a node package only used for development purposes.
+## Getting Started
 
-`listen.js` binds the app to the relevant port it can listen for requests on.
-
-`db` folder contains all of the required seeding and local database files.
-
-## Clone
+### Clone
 
 ```zsh
-git clone https://github.com/HanzoDaBoss/nc-news-be-project.git
+git clone https://github.com/HanzoDaBoss/medway-basketball-app.git
 ```
 
-## Install Dependencies
+### Navigate to directory
 
 ```zsh
-npm install
+cd api
 ```
 
-## Databases
-
-Run this script to initialise the local databases
+### Install Dependencies
 
 ```zsh
-npm run setup-dbs
+dotnet restore
 ```
 
-To connect to the local databases, run the following commands
+### Databases
+
+Run this script to update the database schema
 
 ```zsh
-echo "PGDATABASE = nc_news_test" > .env.test
-echo "PGDATABASE = nc_news" > .env.development
+dotnet ef database update
 ```
 
-## Seeding
+### Run
 
-Run this script to seed the development database
-
-```zsh
-npm run seed
-```
-
-## Testing
-
-Run this script to test the database
+Run this script to deploy the application locally
 
 ```zsh
-npm t app.test
+dotnet run
 ```
 
 ## Minimum Version Requirements
 
-Node.js: `v21.5.0`
+.NET SDK: `v8.0`
 
-PostgreSQL: `v14.11`
+MS SQL Server 2022: `v16.0.4125.3`
