@@ -51,4 +51,6 @@ dotnet run
 
 .NET SDK: `v8.0`
 
+C# Dev Kit: `v1.8.14`
+
 MS SQL Server 2022: `v16.0.4125.3`
