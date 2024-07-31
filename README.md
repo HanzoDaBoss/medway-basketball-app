@@ -1,10 +1,10 @@
 # Medway Basketball API
 
-## An ASP.NET Core RESTful Web API that provides the latest basketball player data!
+## A RESTful API that provides the latest basketball player data!
 
-This project is designed to outline building and accesssing a REST API, which provides a back-end service for a front-end architecture to utilise.
+This project is designed to outline building and accesssing a ASP.NET Core Web API, which provides a back-end service for a front-end architecture to utilise.
 
-Link to the live API: https://nc-news-7e8z.onrender.com
+Link to the live site: https://medway-basketball.netlify.app
 
 All endpoints are handled in `app.js`.
 
