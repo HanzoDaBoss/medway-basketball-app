@@ -19,7 +19,7 @@ export default function () {
       <div class="border-gray-300 h-20 w-20 animate-spin rounded-full border-8 border-t-blue-600" />
     </div>
   ) : (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col gap-y-5 items-center">
       {articleList.map((article) => {
         return (
           <div className="w-80 border border-sky-500">
