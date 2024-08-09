@@ -4,6 +4,10 @@ const api = axios.create({
   baseURL: `https://medway-basketball.azurewebsites.net/api`,
 });
 
+const nbaApi = axios.create({
+  baseURL: `https://nba-stories.onrender.com`,
+});
+
 const getPlayers = (sort_by) => {
   return api
     .get(`/players`, {
@@ -76,9 +80,10 @@ const postLogin = (login) => {
 };
 
 const getArticles = () => {
-  return api
-    .get(`/players`)
+  return nbaApi
+    .get(`/articles`)
     .then(({data}) => {
+      console.log(data);
       return data;
     })
     .catch((error) => {
