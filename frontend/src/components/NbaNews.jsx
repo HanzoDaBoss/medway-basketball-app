@@ -5,13 +5,12 @@ export default function () {
   const [articleList, setArticleList] = useState([]);
 
   useEffect(() => {
-    setLoading(true);
-    getArticles().then((players) => {
-      const playersWithGrades = gradeConverter(players);
-      setPlayerList(playersWithGrades);
-      setLoading(false);
+    // setLoading(true);
+    getArticles().then((articles) => {
+      setArticleList(articles);
+      // setLoading(false);
     });
-  }, [sortBy]);
+  }, []);
 
   return <></>;
 }
