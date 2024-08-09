@@ -1,3 +1,6 @@
+import {useState} from "react";
+
 export default function () {
-  return <header>NBA News Coming Soon!</header>;
+  const [articleList, setArticleList] = useState([]);
+  return <></>;
 }
