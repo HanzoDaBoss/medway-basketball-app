@@ -93,4 +93,5 @@ export {
   getPlayerById,
   putPlayerById,
   deletePlayerById,
+  getArticles,
 };
