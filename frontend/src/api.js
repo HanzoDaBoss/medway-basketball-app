@@ -75,6 +75,17 @@ const postLogin = (login) => {
     });
 };
 
+const getArticles = () => {
+  return api
+    .get(`/players`)
+    .then(({data}) => {
+      return data;
+    })
+    .catch((error) => {
+      return error.response;
+    });
+};
+
 export {
   getPlayers,
   postPlayer,
