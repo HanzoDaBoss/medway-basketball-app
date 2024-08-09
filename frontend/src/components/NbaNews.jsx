@@ -22,11 +22,13 @@ export default function () {
     <div className="flex flex-col items-center">
       {articleList.map((article) => {
         return (
-          <>
+          <div className="w-100 border border-sky-500">
             <h2>{article.title}</h2>
-            <p>{article.url}</p>
+            <a href={article.url} target="_blank" className="text-xs">
+              {article.url}
+            </a>
             <p>{article.source}</p>
-          </>
+          </div>
         );
       })}
     </div>
