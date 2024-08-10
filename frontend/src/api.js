@@ -1,7 +1,9 @@
 import axios from "axios";
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
 const api = axios.create({
-  baseURL: `https://medway-basketball.azurewebsites.net/api`,
+  baseURL: apiUrl,
 });
 
 const nbaApi = axios.create({
