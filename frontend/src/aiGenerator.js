@@ -1,7 +1,7 @@
 import ollama from "ollama";
 
-const response = await ollama.chat({
-  model: "llama2",
-  messages: [{role: "user", content: "Why is the sky blue?"}],
+const output = await ollama.generate({
+  model: "llama3.1",
+  prompt: "Why is the sky blue?",
 });
-console.log(response.message.content);
+console.log(output.response);
