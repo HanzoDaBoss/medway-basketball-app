@@ -30,7 +30,7 @@ export default function () {
             >
               Article Link
             </a>
-            <p>Source: {article.source}</p>
+            <p className="text-black">Source: {article.source}</p>
           </div>
         );
       })}
