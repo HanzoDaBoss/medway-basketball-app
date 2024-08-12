@@ -22,7 +22,7 @@ export default function () {
       {articleList.map((article) => {
         return (
           <div className="w-80 border border-sky-500">
-            <h2>{article.title}</h2>
+            <h2 className="text-black">{article.title}</h2>
             <a
               href={article.url}
               target="_blank"
