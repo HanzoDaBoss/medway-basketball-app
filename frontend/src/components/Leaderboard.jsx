@@ -19,12 +19,12 @@ export default function Leaderboard() {
 
   return loading ? (
     <div class="min-w-100 flex flex-col items-center">
-      <header>PLAYER STANDINGS</header>
+      <header className="text-3xl font-bold italic">PLAYER STANDINGS</header>
       <div class="border-gray-300 h-20 w-20 animate-spin rounded-full border-8 border-t-blue-600" />
     </div>
   ) : (
     <div className="flex flex-col items-center">
-      <header>PLAYER STANDINGS</header>
+      <header className="stroke-red-400">PLAYER STANDINGS</header>
       <Dropdown sortBy={sortBy} setSortBy={setSortBy} />
       <div class="inline-block min-w-100 py-2 sm:px-6 lg:px-14">
         <table className="min-w-full border border-neutral-200 text-center text-sm font-light text-surface dark:border-white/10 dark:text-white shadow-xl">
