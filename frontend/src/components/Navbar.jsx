@@ -51,7 +51,7 @@ const TestPage = () => {
           <Link key={item.id} to={`/${item.link}`}>
             <li
               key={item.id}
-              className="p-4 hover:bg-[#8EC5FC] rounded-xl m-2 cursor-pointer duration-300 hover:text-black"
+              className="p-4 hover:bg-[#d97706] rounded-xl m-2 cursor-pointer duration-300 hover:text-black"
             >
               {item.text}
             </li>
@@ -61,7 +61,7 @@ const TestPage = () => {
         {!user ? (
           <ul
             onClick={() => setOpen(true)}
-            className="p-4 text-[#8EC5FC] hover:bg-[#8EC5FC] rounded-xl m-2 cursor-pointer duration-300 hover:text-black border-solid border-2 border-[#8EC5FC]"
+            className="p-4 text-[#d97706] hover:bg-[#d97706] rounded-xl m-2 cursor-pointer duration-300 hover:text-black border-solid border-2 border-[#d97706]"
           >
             Login
           </ul>
@@ -72,7 +72,7 @@ const TestPage = () => {
 
       {!user ? (
         <div onClick={() => setOpen(true)} className="block md:hidden">
-          <div className="p-4 text-[#8EC5FC] hover:bg-[#8EC5FC] rounded-xl m-2 cursor-pointer duration-300 hover:text-black border-solid border-2 border-[#8EC5FC]">
+          <div className="p-4 text-[#d97706] hover:bg-[#d97706] rounded-xl m-2 cursor-pointer duration-300 hover:text-black border-solid border-2 border-[#d97706]">
             Login
           </div>
         </div>
