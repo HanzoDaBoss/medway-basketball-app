@@ -23,16 +23,16 @@ export default function () {
       <header className="text-3xl font-bold italic">NBA NEWS</header>
       {articleList.map((article) => {
         return (
-          <div className="w-80 border border-sky-500">
-            <h2 className="text-black">{article.title}</h2>
+          <div className="w-80 border border-[#d97706]">
+            <h2 className="text-white">{article.title}</h2>
             <a
               href={article.url}
               target="_blank"
-              className="text-sky-500 hover:text-sky-700"
+              className="text-[#d97706] hover:text-sky-700"
             >
               Article Link
             </a>
-            <p className="text-black">Source: {article.source}</p>
+            <p className="text-white">Source: {article.source}</p>
           </div>
         );
       })}
