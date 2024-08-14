@@ -101,7 +101,7 @@ const TestPage = () => {
       <ul
         className={
           nav
-            ? "fixed md:hidden left-0 top-0 w-[60%] h-full border-r border-r-white-900 bg-black  ease-in-out duration-500 z-10"
+            ? "fixed md:hidden left-0 top-0 w-[60%] h-full border-r border-r-white-900 bg-black ease-in-out duration-500 z-10"
             : "ease-in-out w-[60%] duration-500 fixed top-0 bottom-0 left-[-100%]"
         }
       >
@@ -120,7 +120,7 @@ const TestPage = () => {
           <Link to={`/${item.link}`}>
             <li
               key={item.id}
-              className="p-4 text-white border-b rounded-xl hover:bg-[#8EC5FC] duration-300 hover:text-black cursor-pointer border-white-600"
+              className="p-4 text-white border-b rounded-xl hover:bg-[#d97706] duration-300 hover:text-black cursor-pointer border-white-600"
             >
               {item.text}
             </li>
