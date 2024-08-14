@@ -32,7 +32,7 @@ const TestPage = () => {
       ];
 
   return (
-    <div className="bg-white bg-opacity-30 flex justify-between items-center h-24 w-100 mx-auto px-4 text-black">
+    <div className="bg-black bg-opacity-30 flex justify-between items-center h-24 w-100 mx-auto px-4 text-black">
       {/* Logo */}
       {/* <h1 className="w-full text-3xl font-bold text-[#00df9a]">REACT.</h1> */}
       <div className="flex flex-shrink-0 items-center ml-5">
@@ -51,7 +51,7 @@ const TestPage = () => {
           <Link key={item.id} to={`/${item.link}`}>
             <li
               key={item.id}
-              className="p-4 hover:bg-[#d97706] rounded-xl m-2 cursor-pointer duration-300 hover:text-black"
+              className="p-4 text-white hover:bg-[#d97706] rounded-xl m-2 cursor-pointer duration-300 hover:text-black"
             >
               {item.text}
             </li>
@@ -61,7 +61,7 @@ const TestPage = () => {
         {!user ? (
           <ul
             onClick={() => setOpen(true)}
-            className="p-4 text-[#d97706] hover:bg-[#d97706] rounded-xl m-2 cursor-pointer duration-300 hover:text-black border-solid border-2 border-[#d97706]"
+            className="p-4 text-white hover:bg-[#d97706] rounded-xl m-2 cursor-pointer duration-300 hover:text-black border-solid border-2 border-[#d97706]"
           >
             Login
           </ul>
