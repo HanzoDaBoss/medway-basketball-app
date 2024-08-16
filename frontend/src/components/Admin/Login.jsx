@@ -74,7 +74,7 @@ export default function Login({setOpen}) {
             <div class="border-gray-300 h-20 w-20 animate-spin rounded-full border-8 border-t-blue-600" />
           ) : (
             <button
-              class="bg-zinc-800 hover:bg-zinc-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              class="bg-zinc-800 hover:bg-zinc-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="button"
               onClick={submitLogin}
             >
