@@ -36,10 +36,10 @@ export default function Login({setOpen}) {
 
   return (
     <div class="w-full max-w-xs">
-      <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <form class="bg-zinc-900 outline-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <div class="mb-4">
           <label
-            class="block text-gray-700 text-sm font-bold mb-2"
+            class="block text-gray-200 text-sm font-bold mb-2"
             for="username"
           >
             Username/Email
@@ -55,7 +55,7 @@ export default function Login({setOpen}) {
         </div>
         <div class="mb-6">
           <label
-            class="block text-gray-700 text-sm font-bold mb-2"
+            class="block text-gray-200 text-sm font-bold mb-2"
             for="password"
           >
             Password
@@ -74,7 +74,7 @@ export default function Login({setOpen}) {
             <div class="border-gray-300 h-20 w-20 animate-spin rounded-full border-8 border-t-blue-600" />
           ) : (
             <button
-              class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              class="bg-zinc-800 hover:bg-zinc-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="button"
               onClick={submitLogin}
             >
