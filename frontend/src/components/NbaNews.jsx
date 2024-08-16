@@ -28,7 +28,7 @@ export default function () {
             <a
               href={article.url}
               target="_blank"
-              className="text-[#d97706] hover:text-sky-700"
+              className="text-[#d97706] hover:text-[#f59e0b]"
             >
               Article Link
             </a>
