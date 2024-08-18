@@ -15,6 +15,7 @@ export default function CreateGame() {
 
   return (
     <div class="flex flex-col items-center text-xl font-semibold">
+      <header className="text-3xl font-bold italic">GAME CREATOR</header>
       {playerList.map((player) => {
         return (
           <div class="flex items-center space-x-2 rounded p-2 hover:bg-gray-100 accent-teal-600">
