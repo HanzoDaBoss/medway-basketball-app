@@ -14,7 +14,7 @@ export default function CreateGame() {
   }, []);
 
   return (
-    <div class="w-40 text-xl font-semibold">
+    <div class="flex flex-col items-center text-xl font-semibold">
       <div class="flex items-center space-x-2 rounded p-2 hover:bg-gray-100 accent-teal-600">
         <input
           type="checkbox"
