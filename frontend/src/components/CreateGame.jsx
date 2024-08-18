@@ -4,6 +4,7 @@ import {getPlayers} from "../api";
 export default function CreateGame() {
   const [playerList, setPlayerList] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [activePlayers, setActivePlayers] = useState([]);
 
   useEffect(() => {
     setLoading(true);
@@ -12,6 +13,8 @@ export default function CreateGame() {
       setLoading(false);
     });
   }, []);
+
+  const handlePlayerForGame = () => {};
 
   return (
     <div class="flex flex-col items-center text-xl font-semibold">
