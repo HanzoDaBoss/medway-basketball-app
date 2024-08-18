@@ -16,7 +16,7 @@ export default function () {
   return loading ? (
     <div class="min-w-100 flex flex-col items-center">
       <header className="text-3xl font-bold italic">NBA NEWS</header>
-      <div class="border-gray-300 h-20 w-20 animate-spin rounded-full border-8 border-t-blue-600" />
+      <div class="border-gray-300 h-20 w-20 animate-spin rounded-full border-8 border-t-amber-600" />
     </div>
   ) : (
     <div className="flex flex-col gap-y-5 items-center">

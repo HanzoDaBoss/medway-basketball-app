@@ -71,7 +71,7 @@ export default function Login({setOpen}) {
         </div>
         <div class="flex flex-col items-center">
           {loading ? (
-            <div class="border-gray-300 h-20 w-20 animate-spin rounded-full border-8 border-t-blue-600" />
+            <div class="border-gray-300 h-20 w-20 animate-spin rounded-full border-8 border-t-amber-600" />
           ) : (
             <button
               class="bg-zinc-800 hover:bg-zinc-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
