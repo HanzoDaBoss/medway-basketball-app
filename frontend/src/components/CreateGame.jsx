@@ -30,7 +30,7 @@ export default function CreateGame() {
 
   return loading ? (
     <div class="min-w-100 flex flex-col items-center">
-      <header className="text-3xl font-bold italic">PLAYER STANDINGS</header>
+      <header className="text-3xl font-bold italic">GAME CREATOR</header>
       <div class="border-gray-300 h-20 w-20 animate-spin rounded-full border-8 border-t-amber-600" />
     </div>
   ) : (
