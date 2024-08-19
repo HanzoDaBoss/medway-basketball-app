@@ -5,6 +5,8 @@ export default function CreateGame() {
   const [playerList, setPlayerList] = useState([]);
   const [loading, setLoading] = useState(false);
   const [activePlayers, setActivePlayers] = useState([]);
+  const [team1, setTeam1] = useState([]);
+  const [team2, setTeam2] = useState([]);
 
   useEffect(() => {
     setLoading(true);
