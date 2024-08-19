@@ -25,8 +25,9 @@ export default function CreateGame() {
         return [...currActivePlayers, toggledPlayer];
       }
     });
-    console.log(activePlayers);
   };
+
+  const handleGenerate = () => {};
 
   return loading ? (
     <div class="min-w-100 flex flex-col items-center">
@@ -55,7 +56,10 @@ export default function CreateGame() {
           </div>
         );
       })}
-      <button className="p-4 text-white hover:bg-[#d97706] rounded-xl m-2 cursor-pointer duration-300 hover:text-black border-solid border-2 border-[#d97706]">
+      <button
+        className="p-4 text-white hover:bg-[#d97706] rounded-xl m-2 cursor-pointer duration-300 hover:text-black border-solid border-2 border-[#d97706]"
+        onClick={handleGenerate}
+      >
         Generate
       </button>
       <div>
