@@ -50,6 +50,9 @@ export default function CreateGame() {
           </div>
         );
       })}
+      <button className="p-4 text-white hover:bg-[#d97706] rounded-xl m-2 cursor-pointer duration-300 hover:text-black border-solid border-2 border-[#d97706]">
+        Generate
+      </button>
       <div>
         {activePlayers.map((player) => {
           return <h2>{player.playerName}</h2>;
