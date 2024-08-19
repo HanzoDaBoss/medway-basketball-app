@@ -50,6 +50,11 @@ export default function CreateGame() {
           </div>
         );
       })}
+      <div>
+        {activePlayers.map((player) => {
+          return <h2>{player.playerName}</h2>;
+        })}
+      </div>
     </div>
   );
 }
