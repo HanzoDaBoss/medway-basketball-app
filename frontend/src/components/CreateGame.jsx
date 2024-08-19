@@ -28,7 +28,12 @@ export default function CreateGame() {
     console.log(activePlayers);
   };
 
-  return (
+  return loading ? (
+    <div class="min-w-100 flex flex-col items-center">
+      <header className="text-3xl font-bold italic">PLAYER STANDINGS</header>
+      <div class="border-gray-300 h-20 w-20 animate-spin rounded-full border-8 border-t-amber-600" />
+    </div>
+  ) : (
     <div class="flex flex-col items-center text-xl font-semibold">
       <header className="text-3xl font-bold italic">GAME CREATOR</header>
       {playerList.map((player) => {
