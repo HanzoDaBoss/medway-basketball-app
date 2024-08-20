@@ -45,13 +45,15 @@ export default function CreateGame() {
       ];
     }
     for (let i = 0; i < activePlayers.length / 2; i++) {
-      team1.push(activePlayers[activePlayersIndexArray[i]]);
+      setTeam1((currTeam1Players) => {
+        return [...currTeam1Players, activePlayers[activePlayersIndexArray[i]]];
+      });
     }
     for (let i = activePlayers.length / 2; i < activePlayers.length; i++) {
-      team2.push(activePlayers[activePlayersIndexArray[i]]);
+      setTeam2((currTeam1Players) => {
+        return [...currTeam1Players, activePlayers[activePlayersIndexArray[i]]];
+      });
     }
-    console.log(team1);
-    console.log(team2);
   };
 
   return loading ? (
@@ -87,9 +89,21 @@ export default function CreateGame() {
       >
         Generate
       </button>
+      {/* <div>
+        {activePlayers.map((team1Player) => {
+          return <h2>{team1Player.playerName}</h2>;
+        })}
+      </div> */}
       <div>
-        {activePlayers.map((player) => {
-          return <h2>{player.playerName}</h2>;
+        <h1>TEAM 1:</h1>
+        {team1.map((team1Player) => {
+          return <h2>{team1Player.playerName}</h2>;
+        })}
+      </div>
+      <div>
+        <h1>TEAM 2:</h1>
+        {team2.map((team2Player) => {
+          return <h2>{team2Player.playerName}</h2>;
         })}
       </div>
     </div>
