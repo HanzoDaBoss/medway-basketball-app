@@ -29,7 +29,30 @@ export default function CreateGame() {
     });
   };
 
-  const handleGenerate = () => {};
+  const handleGenerate = () => {
+    const activePlayersIndexArray = [...activePlayers].map(
+      (player, index) => index
+    );
+
+    setTeam1([]);
+    setTeam2([]);
+
+    for (let i = activePlayersIndexArray.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [activePlayersIndexArray[i], activePlayersIndexArray[j]] = [
+        activePlayersIndexArray[j],
+        activePlayersIndexArray[i],
+      ];
+    }
+    for (let i = 0; i < activePlayers.length / 2; i++) {
+      team1.push(activePlayers[activePlayersIndexArray[i]]);
+    }
+    for (let i = activePlayers.length / 2; i < activePlayers.length; i++) {
+      team2.push(activePlayers[activePlayersIndexArray[i]]);
+    }
+    console.log(team1);
+    console.log(team2);
+  };
 
   return loading ? (
     <div class="min-w-100 flex flex-col items-center">
