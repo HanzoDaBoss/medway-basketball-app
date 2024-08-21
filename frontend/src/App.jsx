@@ -11,6 +11,8 @@ import CreateGame from "./components/CreateGame";
 function App() {
   const [playerList, setPlayerList] = useState([]);
   const [openTeams, setOpenTeams] = useState(false);
+  const [team1, setTeam1] = useState([]);
+  const [team2, setTeam2] = useState([]);
 
   return (
     <>
@@ -21,7 +23,14 @@ function App() {
         <Route
           path="/create"
           element={
-            <CreateGame openTeams={openTeams} setOpenTeams={setOpenTeams} />
+            <CreateGame
+              openTeams={openTeams}
+              setOpenTeams={setOpenTeams}
+              team1={team1}
+              setTeam1={setTeam1}
+              team2={team2}
+              setTeam2={setTeam2}
+            />
           }
         />
         <Route
