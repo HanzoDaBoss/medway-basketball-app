@@ -2,13 +2,12 @@ import {useEffect, useState} from "react";
 import {getPlayers} from "../api";
 import Modal from "./Admin/Modal";
 
-export default function CreateGame() {
+export default function CreateGame({openTeams, setOpenTeams}) {
   const [playerList, setPlayerList] = useState([]);
   const [loading, setLoading] = useState(false);
   const [activePlayers, setActivePlayers] = useState([]);
   const [team1, setTeam1] = useState([]);
   const [team2, setTeam2] = useState([]);
-  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     setLoading(true);

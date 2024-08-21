@@ -18,7 +18,12 @@ function App() {
       <Routes>
         <Route path="/" element={<Leaderboard />} />
         <Route path="/nba-news" element={<NbaNews />} />
-        <Route path="/create" element={<CreateGame />} />
+        <Route
+          path="/create"
+          element={
+            <CreateGame openTeams={openTeams} setOpenTeams={setOpenTeams} />
+          }
+        />
         <Route
           path="/admin"
           element={
