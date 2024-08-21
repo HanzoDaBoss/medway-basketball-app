@@ -89,7 +89,7 @@ const Navbar = ({openTeams, setOpenTeams, team1, team2}) => {
       </Modal>
 
       <Modal open={openTeams} onClose={() => setOpenTeams(false)}>
-        <div className="text-center text-white w-56">
+        <div className="flex flex-row justify-center gap-10 text-white w-56">
           <div>
             <h1>TEAM 1:</h1>
             {team1.map((team1Player) => {
