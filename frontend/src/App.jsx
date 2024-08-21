@@ -14,7 +14,7 @@ function App() {
 
   return (
     <>
-      <Navbar />
+      <Navbar openTeams={openTeams} setOpenTeams={setOpenTeams} />
       <Routes>
         <Route path="/" element={<Leaderboard />} />
         <Route path="/nba-news" element={<NbaNews />} />

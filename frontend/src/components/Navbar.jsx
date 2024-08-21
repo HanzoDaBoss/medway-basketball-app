@@ -5,7 +5,7 @@ import Modal from "./Admin/Modal";
 import Login from "./Admin/Login";
 import {UserContext} from "./contexts/User";
 
-const TestPage = () => {
+const Navbar = ({openTeams, setOpenTeams}) => {
   // State to manage the navbar's visibility
   const [nav, setNav] = useState(false);
   const [open, setOpen] = useState(false);
@@ -131,4 +131,4 @@ const TestPage = () => {
   );
 };
 
-export default TestPage;
+export default Navbar;
