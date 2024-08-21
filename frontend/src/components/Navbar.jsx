@@ -5,7 +5,13 @@ import Modal from "./Admin/Modal";
 import Login from "./Admin/Login";
 import {UserContext} from "./contexts/User";
 
-const Navbar = ({openTeams, setOpenTeams, team1, team2}) => {
+const Navbar = ({
+  openTeams,
+  setOpenTeams,
+  team1,
+  team2,
+  teamsGenerateError,
+}) => {
   // State to manage the navbar's visibility
   const [nav, setNav] = useState(false);
   const [open, setOpen] = useState(false);
@@ -89,20 +95,28 @@ const Navbar = ({openTeams, setOpenTeams, team1, team2}) => {
       </Modal>
 
       <Modal open={openTeams} onClose={() => setOpenTeams(false)}>
-        <div className="flex flex-row justify-center gap-10 text-white w-56">
-          <div>
-            <h1>TEAM 1:</h1>
-            {team1.map((team1Player) => {
-              return <h2>{team1Player.playerName}</h2>;
-            })}
+        {teamsGenerateError ? (
+          <div className="text-center w-56">
+            <div className="mx-auto my-4 w-48 text-white">
+              Error: Please select up to an even number of players
+            </div>
           </div>
-          <div>
-            <h1>TEAM 2:</h1>
-            {team2.map((team2Player) => {
-              return <h2>{team2Player.playerName}</h2>;
-            })}
+        ) : (
+          <div className="flex flex-row justify-center gap-10 text-white w-56">
+            <div>
+              <h1>TEAM 1:</h1>
+              {team1.map((team1Player) => {
+                return <h2>{team1Player.playerName}</h2>;
+              })}
+            </div>
+            <div>
+              <h1>TEAM 2:</h1>
+              {team2.map((team2Player) => {
+                return <h2>{team2Player.playerName}</h2>;
+              })}
+            </div>
           </div>
-        </div>
+        )}
       </Modal>
 
       {/* Mobile Navigation Icon */}

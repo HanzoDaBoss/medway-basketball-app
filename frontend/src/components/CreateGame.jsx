@@ -9,6 +9,7 @@ export default function CreateGame({
   setTeam1,
   team2,
   setTeam2,
+  setTeamsGenerateError,
 }) {
   const [playerList, setPlayerList] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -36,30 +37,42 @@ export default function CreateGame({
   };
 
   const handleGenerate = () => {
+    setTeam1([]);
+    setTeam2([]);
+
     const activePlayersIndexArray = [...activePlayers].map(
       (player, index) => index
     );
 
-    setTeam1([]);
-    setTeam2([]);
+    if (activePlayersIndexArray.length % 2 !== 0) {
+      setTeamsGenerateError(true);
+    } else {
+      setTeamsGenerateError(false);
+      for (let i = activePlayersIndexArray.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [activePlayersIndexArray[i], activePlayersIndexArray[j]] = [
+          activePlayersIndexArray[j],
+          activePlayersIndexArray[i],
+        ];
+      }
+      for (let i = 0; i < activePlayers.length / 2; i++) {
+        setTeam1((currTeam1Players) => {
+          return [
+            ...currTeam1Players,
+            activePlayers[activePlayersIndexArray[i]],
+          ];
+        });
+      }
+      for (let i = activePlayers.length / 2; i < activePlayers.length; i++) {
+        setTeam2((currTeam1Players) => {
+          return [
+            ...currTeam1Players,
+            activePlayers[activePlayersIndexArray[i]],
+          ];
+        });
+      }
+    }
 
-    for (let i = activePlayersIndexArray.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [activePlayersIndexArray[i], activePlayersIndexArray[j]] = [
-        activePlayersIndexArray[j],
-        activePlayersIndexArray[i],
-      ];
-    }
-    for (let i = 0; i < activePlayers.length / 2; i++) {
-      setTeam1((currTeam1Players) => {
-        return [...currTeam1Players, activePlayers[activePlayersIndexArray[i]]];
-      });
-    }
-    for (let i = activePlayers.length / 2; i < activePlayers.length; i++) {
-      setTeam2((currTeam1Players) => {
-        return [...currTeam1Players, activePlayers[activePlayersIndexArray[i]]];
-      });
-    }
     setOpenTeams(true);
   };
 

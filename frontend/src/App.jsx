@@ -13,6 +13,7 @@ function App() {
   const [openTeams, setOpenTeams] = useState(false);
   const [team1, setTeam1] = useState([]);
   const [team2, setTeam2] = useState([]);
+  const [teamsGenerateError, setTeamsGenerateError] = useState(false);
 
   return (
     <>
@@ -21,6 +22,7 @@ function App() {
         setOpenTeams={setOpenTeams}
         team1={team1}
         team2={team2}
+        teamsGenerateError={teamsGenerateError}
       />
       <Routes>
         <Route path="/" element={<Leaderboard />} />
@@ -35,6 +37,7 @@ function App() {
               setTeam1={setTeam1}
               team2={team2}
               setTeam2={setTeam2}
+              setTeamsGenerateError={setTeamsGenerateError}
             />
           }
         />
