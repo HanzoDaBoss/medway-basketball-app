@@ -55,6 +55,7 @@ export default function CreateGame({openTeams, setOpenTeams}) {
         return [...currTeam1Players, activePlayers[activePlayersIndexArray[i]]];
       });
     }
+    setOpenTeams(true);
   };
 
   return loading ? (
