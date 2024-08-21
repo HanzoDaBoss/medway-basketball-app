@@ -88,6 +88,12 @@ const Navbar = ({openTeams, setOpenTeams}) => {
         </div>
       </Modal>
 
+      <Modal open={openTeams} onClose={() => setOpenTeams(false)}>
+        <div className="text-center w-56">
+          <div className="mx-auto my-4 w-48">These are the generated teams</div>
+        </div>
+      </Modal>
+
       {/* Mobile Navigation Icon */}
       <div onClick={handleNav} className="block md:hidden">
         {nav ? (
