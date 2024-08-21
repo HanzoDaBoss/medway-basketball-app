@@ -10,6 +10,7 @@ import CreateGame from "./components/CreateGame";
 
 function App() {
   const [playerList, setPlayerList] = useState([]);
+  const [openTeams, setOpenTeams] = useState(false);
 
   return (
     <>
