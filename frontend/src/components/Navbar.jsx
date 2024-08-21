@@ -5,7 +5,7 @@ import Modal from "./Admin/Modal";
 import Login from "./Admin/Login";
 import {UserContext} from "./contexts/User";
 
-const Navbar = ({openTeams, setOpenTeams}) => {
+const Navbar = ({openTeams, setOpenTeams, team1, team2}) => {
   // State to manage the navbar's visibility
   const [nav, setNav] = useState(false);
   const [open, setOpen] = useState(false);
@@ -89,8 +89,19 @@ const Navbar = ({openTeams, setOpenTeams}) => {
       </Modal>
 
       <Modal open={openTeams} onClose={() => setOpenTeams(false)}>
-        <div className="text-center w-56">
-          <div className="mx-auto my-4 w-48">These are the generated teams</div>
+        <div className="text-center text-white w-56">
+          <div>
+            <h1>TEAM 1:</h1>
+            {team1.map((team1Player) => {
+              return <h2>{team1Player.playerName}</h2>;
+            })}
+          </div>
+          <div>
+            <h1>TEAM 2:</h1>
+            {team2.map((team2Player) => {
+              return <h2>{team2Player.playerName}</h2>;
+            })}
+          </div>
         </div>
       </Modal>
 

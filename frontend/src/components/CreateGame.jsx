@@ -96,23 +96,6 @@ export default function CreateGame({
       >
         Generate
       </button>
-      {/* <div>
-        {activePlayers.map((team1Player) => {
-          return <h2>{team1Player.playerName}</h2>;
-        })}
-      </div> */}
-      <div>
-        <h1>TEAM 1:</h1>
-        {team1.map((team1Player) => {
-          return <h2>{team1Player.playerName}</h2>;
-        })}
-      </div>
-      <div>
-        <h1>TEAM 2:</h1>
-        {team2.map((team2Player) => {
-          return <h2>{team2Player.playerName}</h2>;
-        })}
-      </div>
     </div>
   );
 }

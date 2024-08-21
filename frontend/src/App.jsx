@@ -16,7 +16,12 @@ function App() {
 
   return (
     <>
-      <Navbar openTeams={openTeams} setOpenTeams={setOpenTeams} />
+      <Navbar
+        openTeams={openTeams}
+        setOpenTeams={setOpenTeams}
+        team1={team1}
+        team2={team2}
+      />
       <Routes>
         <Route path="/" element={<Leaderboard />} />
         <Route path="/nba-news" element={<NbaNews />} />
