@@ -24,6 +24,7 @@ function App() {
         team1={team1}
         team2={team2}
         teamsGenerateError={teamsGenerateError}
+        notEnoughPlayersError={notEnoughPlayersError}
       />
       <Routes>
         <Route path="/" element={<Leaderboard />} />
