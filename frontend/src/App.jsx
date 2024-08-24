@@ -14,6 +14,7 @@ function App() {
   const [team1, setTeam1] = useState([]);
   const [team2, setTeam2] = useState([]);
   const [teamsGenerateError, setTeamsGenerateError] = useState(false);
+  const [notEnoughPlayersError, setNotEnoughPlayersError] = useState(false);
 
   return (
     <>
@@ -35,6 +36,7 @@ function App() {
               setTeam1={setTeam1}
               setTeam2={setTeam2}
               setTeamsGenerateError={setTeamsGenerateError}
+              setNotEnoughPlayersError={setNotEnoughPlayersError}
             />
           }
         />
