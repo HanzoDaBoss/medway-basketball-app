@@ -7,6 +7,7 @@ export default function CreateGame({
   setTeam1,
   setTeam2,
   setTeamsGenerateError,
+  setNotEnoughPlayersError,
 }) {
   const [playerList, setPlayerList] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -41,9 +42,12 @@ export default function CreateGame({
       (player, index) => index
     );
 
-    if (activePlayersIndexArray.length % 2 !== 0) {
+    if (activePlayersIndexArray.length < 2) {
+      setNotEnoughPlayersError(true);
+    } else if (activePlayersIndexArray.length % 2 !== 0) {
       setTeamsGenerateError(true);
     } else {
+      setNotEnoughPlayersError(false);
       setTeamsGenerateError(false);
       for (let i = activePlayersIndexArray.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
