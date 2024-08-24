@@ -11,6 +11,7 @@ const Navbar = ({
   team1,
   team2,
   teamsGenerateError,
+  notEnoughPlayersError,
 }) => {
   // State to manage the navbar's visibility
   const [nav, setNav] = useState(false);
@@ -97,9 +98,15 @@ const Navbar = ({
       <Modal open={openTeams} onClose={() => setOpenTeams(false)}>
         {teamsGenerateError ? (
           <div className="text-center w-56">
-            <div className="mx-auto my-4 w-48 text-red-700">
-              Error: Please select up to an even number of players
-            </div>
+            {notEnoughPlayersError ? (
+              <div className="mx-auto my-4 w-48 text-red-700">
+                Error: Please select at least 2 players
+              </div>
+            ) : (
+              <div className="mx-auto my-4 w-48 text-red-700">
+                Error: Please select up to an even number of players
+              </div>
+            )}
           </div>
         ) : (
           <div className="flex flex-row justify-center gap-10 text-white w-56">
