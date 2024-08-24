@@ -3,11 +3,8 @@ import {getPlayers} from "../api";
 import Modal from "./Admin/Modal";
 
 export default function CreateGame({
-  openTeams,
   setOpenTeams,
-  team1,
   setTeam1,
-  team2,
   setTeam2,
   setTeamsGenerateError,
 }) {
