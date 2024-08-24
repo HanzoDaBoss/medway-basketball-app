@@ -97,7 +97,7 @@ const Navbar = ({
       <Modal open={openTeams} onClose={() => setOpenTeams(false)}>
         {teamsGenerateError ? (
           <div className="text-center w-56">
-            <div className="mx-auto my-4 w-48 text-white">
+            <div className="mx-auto my-4 w-48 text-red-700">
               Error: Please select up to an even number of players
             </div>
           </div>
