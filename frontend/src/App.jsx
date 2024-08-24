@@ -31,11 +31,8 @@ function App() {
           path="/create"
           element={
             <CreateGame
-              openTeams={openTeams}
               setOpenTeams={setOpenTeams}
-              team1={team1}
               setTeam1={setTeam1}
-              team2={team2}
               setTeam2={setTeam2}
               setTeamsGenerateError={setTeamsGenerateError}
             />
