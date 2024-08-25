@@ -19,7 +19,7 @@ export default function () {
       <div class="border-gray-300 h-20 w-20 animate-spin rounded-full border-8 border-t-amber-600" />
     </div>
   ) : (
-    <div className="flex flex-col gap-y-5 items-center">
+    <div className="flex flex-col gap-y-5 items-center mb-5">
       <header className="text-3xl font-bold italic">NBA NEWS</header>
       {articleList.map((article) => {
         return (
