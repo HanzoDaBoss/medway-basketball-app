@@ -83,7 +83,7 @@ export default function CreateGame({
       <div class="border-gray-300 h-20 w-20 animate-spin rounded-full border-8 border-t-amber-600" />
     </div>
   ) : (
-    <div class="flex flex-col items-center text-xl font-semibold">
+    <div class="flex flex-col items-center text-xl font-semibold mb-5">
       <header className="text-3xl font-bold italic">GAME CREATOR</header>
       {playerList.map((player) => {
         return (
