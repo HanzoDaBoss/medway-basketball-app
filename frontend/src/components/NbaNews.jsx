@@ -24,7 +24,7 @@ export default function () {
       {articleList.map((article) => {
         return (
           <div className="w-80 border border-[#d97706]">
-            <h2 className="text-white">{article.title}</h2>
+            <h2 className="text-white font-bold">{article.title}</h2>
             <a
               href={article.url}
               target="_blank"
