@@ -40,7 +40,6 @@ const Navbar = ({
 
   return (
     <div className="bg-black bg-opacity-30 flex justify-between items-center h-24 w-100 mx-auto px-4 text-black border-b-2 border-[#d97706] mb-3">
-      {/* Logo */}
       <div className="flex flex-shrink-0 items-center ml-5">
         <Link to={`/`}>
           <img
