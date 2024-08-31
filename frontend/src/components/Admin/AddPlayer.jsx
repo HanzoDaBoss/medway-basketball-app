@@ -2,7 +2,6 @@ import {useState} from "react";
 import {postPlayer} from "../../api";
 import {playerConverter} from "../../utils/playerConverter";
 import {ovrCalculator} from "../../utils/ovrCalculator";
-import SubmitPlayerButton from "./SubmitPlayerButton";
 import PlayerForm from "./PlayerForm";
 
 export default function AddPlayer() {
