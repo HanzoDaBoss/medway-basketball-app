@@ -142,7 +142,6 @@ const Navbar = ({
         }
       >
         {/* Mobile Logo */}
-        {/* <h1 className="w-full text-3xl font-bold text-[#00df9a] m-4">REACT.</h1> */}
         <div className="w-100 flex flex-shrink-0 items-center justify-center m-5">
           <img
             className="h-8 w-auto"
