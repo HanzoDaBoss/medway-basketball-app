@@ -87,7 +87,7 @@ export default function Login({setOpen}) {
             <></>
           ) : (
             <label class="block text-red-700 text-sm font-bold mb-2 mt-3">
-              Error: Username and/or Password is invalid
+              Error: Username or Password is invalid
             </label>
           )}
         </div>
