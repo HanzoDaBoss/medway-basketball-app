@@ -1,12 +1,7 @@
 import {Link} from "react-router-dom";
 import {useState} from "react";
 
-export default function PlayerList({
-  loading,
-  playerList,
-  setPlayerList,
-  setShowPlayerList,
-}) {
+export default function PlayerList({loading, playerList, setShowPlayerList}) {
   const [open, setOpen] = useState(false);
 
   return loading ? (
