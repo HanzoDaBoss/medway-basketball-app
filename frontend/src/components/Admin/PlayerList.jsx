@@ -2,8 +2,6 @@ import {Link} from "react-router-dom";
 import {useState} from "react";
 
 export default function PlayerList({loading, playerList, setShowPlayerList}) {
-  const [open, setOpen] = useState(false);
-
   return loading ? (
     <ul class="flex flex-col items-center rounded bg-white shadow overflow-hidden sm:rounded-md max-w-sm mx-auto mt-16">
       <button
