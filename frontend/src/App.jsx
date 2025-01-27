@@ -1,10 +1,10 @@
 import "./App.css";
-import {Route, Routes} from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Leaderboard from "./components/Leaderboard";
 import Navbar from "./components/Navbar";
 import AdminPage from "./components/Admin/AdminPage";
 import PlayerPage from "./components/Admin/PlayerPage";
-import {useState} from "react";
+import { useState } from "react";
 import NbaNews from "./components/NbaNews";
 import CreateGame from "./components/CreateGame";
 
