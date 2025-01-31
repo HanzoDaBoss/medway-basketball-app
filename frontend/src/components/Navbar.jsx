@@ -1,9 +1,9 @@
-import React, {useContext, useState} from "react";
-import {AiOutlineClose, AiOutlineMenu} from "react-icons/ai";
-import {Link} from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
+import { Link } from "react-router-dom";
 import Modal from "./Admin/Modal";
 import Login from "./Admin/Login";
-import {UserContext} from "./contexts/User";
+import { UserContext } from "./contexts/User";
 
 const Navbar = ({
   openTeams,
@@ -17,7 +17,7 @@ const Navbar = ({
   const [nav, setNav] = useState(false);
   const [open, setOpen] = useState(false);
 
-  const {user} = useContext(UserContext);
+  const { user } = useContext(UserContext);
 
   // Toggle function to handle the navbar's display
   const handleNav = () => {
@@ -27,15 +27,15 @@ const Navbar = ({
   // Array containing navigation items
   const navItems = !user
     ? [
-        {id: 1, text: "Home", link: ""},
-        {id: 2, text: "NBA News", link: "nba-news"},
-        {id: 3, text: "Create", link: "create"},
+        { id: 1, text: "Home", link: "" },
+        { id: 2, text: "NBA News", link: "nba-news" },
+        { id: 3, text: "Create", link: "create" },
       ]
     : [
-        {id: 1, text: "Home", link: ""},
-        {id: 2, text: "NBA News", link: "nba-news"},
-        {id: 3, text: "Create", link: "create"},
-        {id: 4, text: "Admin", link: "admin"},
+        { id: 1, text: "Home", link: "" },
+        { id: 2, text: "NBA News", link: "nba-news" },
+        { id: 3, text: "Create", link: "create" },
+        { id: 4, text: "Admin", link: "admin" },
       ];
 
   return (
@@ -111,13 +111,13 @@ const Navbar = ({
             <div>
               <h1>TEAM 1:</h1>
               {team1.map((team1Player) => {
-                return <h2>{team1Player.playerName}</h2>;
+                return <h2 key={team1Player.id}>{team1Player.playerName}</h2>;
               })}
             </div>
             <div>
               <h1>TEAM 2:</h1>
               {team2.map((team2Player) => {
-                return <h2>{team2Player.playerName}</h2>;
+                return <h2 key={team2Player.id}>{team2Player.playerName}</h2>;
               })}
             </div>
           </div>
@@ -152,11 +152,8 @@ const Navbar = ({
 
         {/* Mobile Navigation Items */}
         {navItems.map((item) => (
-          <Link to={`/${item.link}`}>
-            <li
-              key={item.id}
-              className="p-4 text-white border-b rounded-xl hover:bg-[#d97706] duration-300 hover:text-black cursor-pointer border-white-600"
-            >
+          <Link key={item.id} to={`/${item.link}`}>
+            <li className="p-4 text-white border-b rounded-xl hover:bg-[#d97706] duration-300 hover:text-black cursor-pointer border-white-600">
               {item.text}
             </li>
           </Link>

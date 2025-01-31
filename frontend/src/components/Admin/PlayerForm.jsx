@@ -22,7 +22,10 @@ export default function ({
           Close
         </button>
         <div class="mb-4">
-          <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
+          <label
+            class="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="name"
+          >
             Name
           </label>
           <input
@@ -42,7 +45,7 @@ export default function ({
               <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
                 <label
                   class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-                  for={`grid-${attribute.text}`}
+                  htmlFor={`grid-${attribute.text}`}
                 >
                   {attribute.abbrieviation}
                 </label>
@@ -64,7 +67,7 @@ export default function ({
           <div class="w-full md:w-1/3 mb-6 md:mb-0">
             <label
               class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-              for="grid-multiplier"
+              htmlFor="grid-multiplier"
             >
               Multiplier
             </label>
@@ -83,7 +86,7 @@ export default function ({
         <div class="flex items-center justify-center">
           <label
             class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
-            for="grid-ovr"
+            htmlFor="grid-ovr"
           >
             Calculated OVR: {inputOVR}
           </label>

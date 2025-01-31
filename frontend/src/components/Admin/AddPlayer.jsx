@@ -1,12 +1,17 @@
-import {useState} from "react";
-import {postPlayer} from "../../api";
-import {playerConverter} from "../../utils/playerConverter";
-import {ovrCalculator} from "../../utils/ovrCalculator";
+import { useState } from "react";
+import { postPlayer } from "../../api";
+import { playerConverter } from "../../utils/playerConverter";
+import { ovrCalculator } from "../../utils/ovrCalculator";
 import PlayerForm from "./PlayerForm";
 
 export default function AddPlayer() {
   const attributes = [
-    {id: 1, abbrieviation: "IS", text: "Inside Scoring", key: "insideScoring"},
+    {
+      id: 1,
+      abbrieviation: "IS",
+      text: "Inside Scoring",
+      key: "insideScoring",
+    },
     {
       id: 2,
       abbrieviation: "MRS",
@@ -25,10 +30,15 @@ export default function AddPlayer() {
       text: "Perimeter Defense",
       key: "perimeterDefense",
     },
-    {id: 5, abbrieviation: "ID", text: "Inside Defense", key: "insideDefense"},
-    {id: 6, abbrieviation: "PM", text: "Playmaking", key: "playmaking"},
-    {id: 7, abbrieviation: "RB", text: "Rebound", key: "rebound"},
-    {id: 8, abbrieviation: "BH", text: "Ball Handling", key: "ballHandling"},
+    {
+      id: 5,
+      abbrieviation: "ID",
+      text: "Inside Defense",
+      key: "insideDefense",
+    },
+    { id: 6, abbrieviation: "PM", text: "Playmaking", key: "playmaking" },
+    { id: 7, abbrieviation: "RB", text: "Rebound", key: "rebound" },
+    { id: 8, abbrieviation: "BH", text: "Ball Handling", key: "ballHandling" },
   ];
 
   const [playerInput, setPlayerInput] = useState({
@@ -53,7 +63,7 @@ export default function AddPlayer() {
   const handlePlayerInput = (e) => {
     const formattedPlayer = playerConverter(playerInput);
     setPlayerInput((currentPlayerInput) => {
-      return {...currentPlayerInput, [e.target.name]: e.target.value};
+      return { ...currentPlayerInput, [e.target.name]: e.target.value };
     });
     setInputOVR(ovrCalculator(formattedPlayer));
   };
@@ -95,9 +105,9 @@ export default function AddPlayer() {
   };
 
   return !addPlayer ? (
-    <div class="flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center">
       <button
-        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 my-2 rounded focus:outline-none focus:shadow-outline"
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 my-2 rounded focus:outline-none focus:shadow-outline"
         type="button"
         onClick={() => setAddPlayer(true)}
       >
@@ -116,10 +126,10 @@ export default function AddPlayer() {
       postFailure={postFailure}
     />
   ) : (
-    <div class="flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center">
       <h2>Player is added to database!</h2>
       <button
-        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 my-2 rounded focus:outline-none focus:shadow-outline"
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 my-2 rounded focus:outline-none focus:shadow-outline"
         type="button"
         onClick={() => {
           setPostedPlayer(false);

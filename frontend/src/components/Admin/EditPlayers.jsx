@@ -1,9 +1,9 @@
-import {useEffect, useState} from "react";
-import {getPlayers} from "../../api";
-import {gradeConverter} from "../../utils/gradeConverter";
+import { useEffect, useState } from "react";
+import { getPlayers } from "../../api";
+import { gradeConverter } from "../../utils/gradeConverter";
 import PlayerList from "./PlayerList";
 
-export default function EditPlayers({playerList, setPlayerList}) {
+export default function EditPlayers({ playerList, setPlayerList }) {
   const [showPlayerList, setShowPlayerList] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -18,7 +18,7 @@ export default function EditPlayers({playerList, setPlayerList}) {
 
   return !showPlayerList ? (
     <button
-      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 my-2 rounded focus:outline-none focus:shadow-outline"
+      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 my-2 rounded focus:outline-none focus:shadow-outline"
       type="button"
       onClick={() => setShowPlayerList(true)}
     >

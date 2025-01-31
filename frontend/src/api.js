@@ -1,6 +1,7 @@
 import axios from "axios";
 
 const apiUrl = import.meta.env.VITE_API_URL;
+const openaiApiUrl = import.meta.env.VITE_OPENAI_API_URL;
 
 const api = axios.create({
   baseURL: apiUrl,
@@ -10,6 +11,10 @@ const nbaApi = axios.create({
   baseURL: `https://nba-stories.onrender.com`,
 });
 
+const openaiApi = axios.create({
+  baseURL: openaiApiUrl,
+});
+
 const getPlayers = (sort_by) => {
   return api
     .get(`/players`, {
@@ -17,7 +22,7 @@ const getPlayers = (sort_by) => {
         sortBy: sort_by,
       },
     })
-    .then(({data}) => {
+    .then(({ data }) => {
       return data;
     })
     .catch((error) => {
@@ -40,7 +45,7 @@ const postPlayer = (player) => {
 const getPlayerById = (id) => {
   return api
     .get(`/players/${id}`)
-    .then(({data}) => {
+    .then(({ data }) => {
       return data;
     })
     .catch((error) => {
@@ -62,7 +67,7 @@ const putPlayerById = (player, id) => {
 const deletePlayerById = (id) => {
   return api
     .delete(`/players/${id}`)
-    .then(({data}) => {
+    .then(({ data }) => {
       return data;
     })
     .catch((error) => {
@@ -84,12 +89,28 @@ const postLogin = (login) => {
 const getArticles = () => {
   return nbaApi
     .get(`/articles`)
-    .then(({data}) => {
-      console.log(data);
+    .then(({ data }) => {
       return data;
     })
     .catch((error) => {
       return error.response;
+    });
+};
+
+const getArticleHtmlById = (article) => {
+  return openaiApi
+    .post(`/nba-article`, article, {
+      headers: {
+        "Content-Type": "application/json", // Ensure proper content type
+        Accept: "text/html", // Expect an HTML response
+      },
+      responseType: "text", // Important: Treat response as text
+    })
+    .then(({ data }) => {
+      return data;
+    })
+    .catch((error) => {
+      console.error("Error fetching HTML:", error);
     });
 };
 
@@ -101,4 +122,5 @@ export {
   putPlayerById,
   deletePlayerById,
   getArticles,
+  getArticleHtmlById,
 };
